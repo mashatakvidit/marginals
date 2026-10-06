@@ -59,7 +59,11 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 }
 
 .abs { position: absolute; }
-.t { font-family: "Marginalis"; white-space: nowrap; text-box: trim-both cap alphabetic; }
+/* Trim text boxes to cap height / baseline (what Figma's "cap height to baseline" does).
+   Done with margins instead of `text-box: trim-both cap alphabetic`, which Chrome
+   forgets on partial relayout (lines jumped after animations finished).
+   Marginalis (hhea): ascent 1em, descent .2em, cap .7em → top .5lh-.3em, bottom .5lh-.4em */
+.t { font-family: "Marginalis"; white-space: nowrap; margin-block: calc(.3em - .5lh) calc(.4em - .5lh); }
 .r { font-family: "Marginalis Rounded"; }
 .ln { display: block; }
 .lbl { font-size: 33.75px; line-height: 45.14px; }
@@ -76,7 +80,7 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
   border-radius: 376.164px;
   white-space: nowrap;
 }
-.chip > span { font-size: 33.75px; line-height: 45.14px; text-box: trim-both cap alphabetic; }
+.chip > span { font-size: 33.75px; line-height: 45.14px; margin-block: calc(.3em - .5lh) calc(.4em - .5lh); }
 .bg-dark { background: var(--dark); }
 .bg-cream { background: var(--cream); }
 .bg-red { background: var(--red); }
@@ -91,7 +95,7 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 
 .dot > div { width: 123px; height: 123px; display: grid; place-items: center; }
 .dot img { position: absolute; inset: 0; }
-.dot span { position: relative; font-size: 80px; line-height: 117.75px; text-box: trim-both cap alphabetic; }
+.dot span { position: relative; font-size: 80px; line-height: 117.75px; margin-block: calc(.3em - .5lh) calc(.4em - .5lh); }
 
 /* ---------- animation system ---------- */
 .js .a, .js .ch { opacity: 0; }
@@ -211,9 +215,10 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 .switcher .tab.on { background: var(--card-fg); color: var(--card-bg); }
 .switcher { padding-bottom: 80px; }
 .switcher .txt {
-  margin-top: 66px; font-size: 90px; line-height: 120px;
+  --gap: 66px;
+  font-size: 90px; line-height: 120px;
+  margin-block: calc(var(--gap) + .3em - .5lh) calc(.4em - .5lh);
   white-space: pre-wrap; overflow-wrap: anywhere;
-  text-box: trim-both cap alphabetic;
   transition: opacity .25s;
   cursor: text; outline: none; caret-color: var(--caret);
   user-select: text; -webkit-user-select: text;
@@ -245,13 +250,13 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 /* ---------- 14 · cards ---------- */
 .tile, .pcard { width: 245px; height: 287px; border: 3px solid var(--dark); border-radius: 10px; }
 .tile { display: grid; place-items: center; }
-.tile span { font-family: "Marginalis Rounded"; font-size: 200px; line-height: 40px; color: var(--cream); text-box: trim-both cap alphabetic; }
+.tile span { font-family: "Marginalis Rounded"; font-size: 200px; line-height: 40px; color: var(--cream); margin-block: calc(.3em - .5lh) calc(.4em - .5lh); }
 .pcard { background: var(--cream); padding: 30px; display: flex; flex-direction: column; gap: 30px; }
 .pcard .pic { position: relative; width: 179px; height: 173px; border-radius: 2px; overflow: hidden; flex: none; }
 .pcard .pic img { position: absolute; }
 .pcard .pic2 { position: absolute; left: calc(50% + .5px); top: 46px; width: 204px; height: 135px; transform: translateX(-50%); border-radius: 2px; overflow: hidden; }
 .pcard .pic2 img { position: absolute; }
-.pcard p { width: 179px; font-family: "Marginalis Rounded"; font-size: 25px; line-height: 40px; text-align: center; color: var(--dark); text-box: trim-both cap alphabetic; }
+.pcard p { width: 179px; font-family: "Marginalis Rounded"; font-size: 25px; line-height: 40px; text-align: center; color: var(--dark); margin-block: calc(.3em - .5lh) calc(.4em - .5lh); }
 .pcard p.reg { font-family: "Marginalis"; }
 @media (hover: hover) {
   #s14 .rb.done { transition: scale .3s var(--ease); }
@@ -301,7 +306,7 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 .m #s1 .title { font-size: 112px; line-height: 122px; }
 .m #s9 .ul { text-decoration: underline 4px var(--teal); text-underline-offset: 14px; }
 .m #s9 .ulw { text-decoration: underline wavy 4px var(--teal); text-underline-offset: 14px; }
-.m .switcher .txt { margin-top: 56px; font-size: 62px; line-height: 86px; }
+.m .switcher .txt { --gap: 56px; font-size: 62px; line-height: 86px; }
 .m .switcher { min-height: 0; }
 .m .dl { justify-content: center; padding: 44px 0; }
 .m .dl > span { font-size: 64px; line-height: 76px; }
