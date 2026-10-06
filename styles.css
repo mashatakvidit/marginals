@@ -197,9 +197,9 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
   color: var(--card-fg);
   transition: background-color .5s var(--ease), color .5s var(--ease);
 }
-.sw-regular { --card-bg: var(--cream); --card-fg: var(--dark); }
-.sw-bold    { --card-bg: var(--red);   --card-fg: var(--cream); }
-.sw-rounded { --card-bg: var(--teal);  --card-fg: var(--cream); }
+.sw-regular { --card-bg: var(--cream); --card-fg: var(--dark);  --caret: var(--red); }
+.sw-bold    { --card-bg: var(--red);   --card-fg: var(--cream); --caret: var(--dark); }
+.sw-rounded { --card-bg: var(--teal);  --card-fg: var(--cream); --caret: var(--dark); }
 .switcher .tabs { display: flex; gap: 20px; }
 .switcher .tab {
   position: relative; cursor: pointer; font: inherit;
@@ -215,12 +215,25 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
   white-space: pre-wrap; overflow-wrap: anywhere;
   text-box: trim-both cap alphabetic;
   transition: opacity .25s;
-  cursor: text; outline: none; caret-color: currentColor;
+  cursor: text; outline: none; caret-color: var(--caret);
   user-select: text; -webkit-user-select: text;
   border-radius: 12px;
 }
 .switcher .txt:focus { outline: 3px dashed currentColor; outline-offset: 20px; }
 .switcher .txt:empty::before { content: "впишите свой текст"; opacity: .45; }
+/* idle typing caret after the sample — tells you the text is editable */
+.switcher .txt::after {
+  content: "";
+  display: inline-block;
+  width: .075em; height: .78em;
+  margin-left: .1em;
+  vertical-align: baseline;
+  background: var(--caret);
+  transition: background-color .5s var(--ease);
+  animation: blink 1.05s steps(1, end) infinite;
+}
+.switcher .txt:focus::after { display: none; }
+@keyframes blink { 50% { opacity: 0; } }
 .edit-hint { opacity: .75; }
 .tab:focus-visible, .hint:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; }
 .switcher .txt.swap { opacity: 0; }
@@ -303,4 +316,5 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
   .is-in .a, .is-in .ch, #s1.is-in .stage, #s11.is-in .dot > div { animation: none !important; }
   #s1 .stage { --lift: 0px; }
   #s7 .hl { color: var(--teal); }
+  .switcher .txt::after { animation: none; }
 }
