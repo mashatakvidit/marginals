@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marginalis — type specimen</title>
+<meta name="description" content="Marginalis — from father’s handwriting to son’s typeface. Type specimen: Regular, Bold, Rounded.">
+<link rel="preload" href="fonts/Marginalis-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Marginalis-Rounded.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- outside-stroke for the “back home” sticker (Figma: stroke 31.5px OUTSIDE, #5d8b8f) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="sticker" x="-20%" y="-20%" width="140%" height="140%">
+    <feMorphology in="SourceAlpha" operator="dilate" radius="24" result="d"/>
+    <feGaussianBlur in="d" stdDeviation="8" result="b"/>
+    <feComponentTransfer in="b" result="t"><feFuncA type="linear" slope="8" intercept="-3"/></feComponentTransfer>
+    <feFlood flood-color="#5d8b8f"/>
+    <feComposite in2="t" operator="in" result="s"/>
+    <feMerge><feMergeNode in="s"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</svg>
+
+<main>
+
+<!-- 1 -->
+<section class="slide" id="s1" aria-label="Marginalis — from father’s handwriting to son’s typeface">
+  <div class="stage">
+    <img class="abs paper" src="assets/s1-paper.svg" alt="">
+    <h1 class="abs t title c-dark">
+      <span class="ln a" style="--d:.1s">Marginalis —</span>
+      <span class="ln a" style="--d:.22s">from father’s </span>
+      <span class="ln a" style="--d:.34s">handwriting to </span>
+      <span class="ln a" style="--d:.46s">son’s typeface</span>
+    </h1>
+    <div class="abs t title c-cream masked" aria-hidden="true">
+      <span class="ln a" style="--d:.1s">Marginalis —</span>
+      <span class="ln a" style="--d:.22s">from father’s </span>
+      <span class="ln a" style="--d:.34s">handwriting to </span>
+      <span class="ln a" style="--d:.46s">son’s typeface</span>
+    </div>
+    <p class="abs t lbl c-dark a" style="left:60px;top:996px;--d:2.2s" data-m="top:1830px">regular 180pt</p>
+    <p class="abs t lbl c-cream a" style="right:60px;top:75px;--anim:fadeDown;--d:.5s">type specimen</p>
+    <div class="chip bg-cream a" style="left:959.59px;top:60px;transform:translateX(-50%);--anim:fadeDown;--d:.35s" data-m="left:60px;top:150px;transform:none"><span class="c-dark">3 font styles</span></div>
+    <p class="abs t lbl c-cream a" style="left:60px;top:75px;--anim:fadeDown;--d:.2s">Marginalis</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide" id="s2" aria-label="Part 1: regular + bold">
+  <div class="stage" style="background:var(--red)">
+    <h2 class="abs t c-cream" data-split style="left:60px;bottom:142px;font-size:240px;line-height:200px;--base:.3s;--step:.05s" data-m="bottom:300px;font-size:200px;line-height:190px;white-space:normal;width:980px">regular+<wbr>bold</h2>
+    <p class="abs t lbl c-cream a" style="left:60px;top:996px;--d:1s" data-m="top:1830px">Marginalis regular 240pt</p>
+    <p class="abs t c-cream a" style="left:60px;top:60px;font-size:45px;line-height:140px;--anim:fadeDown">part 1:</p>
+    <div class="rb clip a" data-m="auto" style="left:1574px;top:643px;width:182.638px;height:77.412px;--anim:fly;--fx:500px;--fy:-200px;--fr:220deg;--dur:1.1s;--d:.5s"><div style="transform:rotate(96.75deg)"><img src="assets/s2-clip63.svg" alt=""></div></div>
+    <div class="rb clip a" data-m="auto" style="left:316px;top:196px;width:181.984px;height:74.441px;--anim:fly;--fx:-200px;--fy:-500px;--fr:-200deg;--dur:1.1s;--d:.35s"><div style="transform:rotate(-84.25deg)"><img src="assets/s2-clip67.svg" alt=""></div></div>
+    <div class="rb clip a" data-m="auto" style="left:97px;top:123px;width:186.097px;height:110.235px;--anim:fly;--fx:-400px;--fy:-300px;--fr:180deg;--dur:1.1s;--d:.2s"><div style="transform:rotate(-108.49deg)"><img src="assets/s2-clip65.svg" alt=""></div></div>
+    <div class="rb clip a" data-m="auto" style="left:1730px;top:378px;width:137.138px;height:182.176px;--anim:fly;--fx:400px;--fy:-400px;--fr:-160deg;--dur:1.1s;--d:.45s"><div style="transform:rotate(29.63deg)"><img src="assets/s2-clip68.svg" alt=""></div></div>
+    <div class="rb clip a" data-m="auto" style="left:1750px;top:893px;width:170.171px;height:160.438px;--anim:fly;--fx:300px;--fy:400px;--fr:200deg;--dur:1.1s;--d:.6s"><div style="transform:rotate(48.28deg)"><img src="assets/s2-clip64.svg" alt=""></div></div>
+    <div class="rb clip a" data-m="auto" style="left:97px;top:233px;width:170.171px;height:160.438px;--anim:fly;--fx:-500px;--fy:100px;--fr:-240deg;--dur:1.1s;--d:.3s"><div style="transform:rotate(48.28deg)"><img src="assets/s2-clip64.svg" alt=""></div></div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="slide" id="s3" aria-label="103 symbols, regular">
+  <div class="stage" style="background:var(--teal)">
+    <div class="abs t glyphs c-cream" data-split data-m="left:70px;top:330px;width:960px;font-size:70px;line-height:104px;letter-spacing:12px;white-space:normal" style="--anim:chPop;--dur:.5s;--step:.012s;--base:.3s">
+      <span class="ln">abcdefghijklmnopqr</span>
+      <span class="ln">stuvwxyz</span>
+      <span class="ln">абвгдеёжзийклмноп</span>
+      <span class="ln">рстуфхцчшщъыьэюя</span>
+      <span class="ln">1234567890+−÷=≈%!?#|</span>
+      <span class="ln">()[].,:;/-–—_“’«»</span>
+    </div>
+    <div class="chip bg-cream a" style="left:360.59px;top:115px;transform:translateX(-50%);--anim:pop" data-m="left:70px;top:190px;transform:none"><span class="c-dark">103 symbols</span></div>
+    <p class="abs t lbl c-cream a" style="left:216px;top:937px;--d:1.6s" data-m="left:70px;top:1810px">Marginalis regular 90pt</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide" id="s4" aria-label="Details: мужские джинсы">
+  <div class="stage" style="background:var(--cream)">
+    <img class="abs a" src="assets/s4-hline.svg" alt="" data-m="left:-295px;top:1077.5px" style="left:125px;top:792.5px;--anim:wipeX;--dur:1.2s;--d:.3s">
+    <img class="abs a" src="assets/s4-hline.svg" alt="" data-m="left:-295px;top:958.5px" style="left:125px;top:585.5px;--anim:wipeX;--dur:1.2s;--d:.2s">
+    <img class="abs a" src="assets/s4-hline.svg" alt="" data-m="left:-295px;top:877.5px" style="left:125px;top:492.5px;--anim:wipeX;--dur:1.2s;--d:.1s">
+    <img class="abs a" src="assets/s4-hline.svg" alt="" data-m="left:-295px;top:758.5px" style="left:125px;top:285.5px;--anim:wipeX;--dur:1.2s;--d:0s">
+    <p class="abs t lbl c-dark a" style="left:1558px;top:169px;--anim:fadeIn;--d:2.4s" data-m="font-size:34px;line-height:44px;left:884px;top:650px"><span class="ln">unicase </span><span class="ln">e form</span></p>
+    <p class="abs t lbl c-dark a" style="left:1345px;top:169px;--anim:fadeIn;--d:2.25s" data-m="font-size:34px;line-height:44px;left:auto;right:342px;top:650px;text-align:right"><span class="ln">low</span><span class="ln">contrast</span></p>
+    <p class="abs t lbl c-dark a" style="left:650px;top:169px;--anim:fadeIn;--d:1.8s" data-m="font-size:34px;line-height:44px;left:auto;right:736px;top:650px;text-align:right"><span class="ln">letters </span><span class="ln">with crossbar</span></p>
+    <p class="abs t lbl c-dark a" style="left:1261px;bottom:170px;--anim:fadeIn;--d:2.1s" data-m="font-size:34px;line-height:44px;left:716px;bottom:727px"><span class="ln">vertical</span><span class="ln">terminal</span></p>
+    <p class="abs t lbl c-dark a" style="left:840px;bottom:170px;--anim:fadeIn;--d:1.95s" data-m="font-size:34px;line-height:44px;left:auto;right:628px;bottom:727px;text-align:right"><span class="ln">low horisontal</span><span class="ln">line</span></p>
+    <img class="abs a" src="assets/s4-vline.svg" alt="" data-m="left:870.3px;top:650px" style="left:1543.5px;top:169px;--anim:wipeY;--dur:.5s;--d:2.3s">
+    <img class="abs a" src="assets/s4-vline.svg" alt="" data-m="left:749.5px;top:650px" style="left:1330.5px;top:169px;--anim:wipeY;--dur:.5s;--d:2.15s">
+    <img class="abs a" src="assets/s4-vline.svg" alt="" data-m="left:355.8px;top:650px" style="left:635.5px;top:169px;--anim:wipeY;--dur:.5s;--d:1.7s">
+    <img class="abs a" src="assets/s4-vline.svg" alt="" data-m="left:701.9px;top:1090px" style="left:1246.5px;top:807px;--anim:wipeUp;--dur:.5s;--d:2s">
+    <img class="abs a" src="assets/s4-vline.svg" alt="" data-m="left:463.4px;top:1090px" style="left:825.5px;top:807px;--anim:wipeUp;--dur:.5s;--d:1.85s">
+    <p class="abs t lbl c-dark a" style="left:125px;top:886px;--d:2.6s" data-m="left:60px;top:1700px">Marginalis regular 300pt</p>
+    <h2 class="abs t c-dark" data-split style="left:959.5px;top:285.5px;transform:translateX(-50%);font-size:300px;line-height:300px;text-align:center;--base:.6s;--step:.05s" data-m="left:540px;top:760px;font-size:170px;line-height:200px">
+      <span class="ln">мужские</span><span class="ln">джинсы</span>
+    </h2>
+    <img class="abs a" src="assets/s4-circle.svg" alt="" data-m="left:355px;top:762px;transform:scale(.5667)" style="left:677px;top:333px;--anim:pop;--d:1.6s">
+    <img class="abs a" src="assets/s4-circle.svg" alt="" data-m="left:714.8px;top:893.5px;transform:scale(.5667)" style="left:1312px;top:565px;--anim:pop;--d:1.75s">
+    <img class="abs a" src="assets/s4-circle.svg" alt="" data-m="left:487px;top:941.6px;transform:scale(.5667)" style="left:910px;top:650px;--anim:pop;--d:1.9s">
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="slide" id="s5" aria-label="Back home — collage">
+  <div class="stage" style="background:var(--dark)">
+    <div class="beads" style="position:absolute;inset:0;pointer-events:none" data-m="transform:translate(-509px,813px)">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1236px;top:808px;--anim:pop;--dur:.4s;--d:1.6s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1252px;top:819px;--anim:pop;--dur:.4s;--d:1.64s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1265px;top:832px;--anim:pop;--dur:.4s;--d:1.68s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1277px;top:847px;--anim:pop;--dur:.4s;--d:1.72s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1280px;top:866px;--anim:pop;--dur:.4s;--d:1.76s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1280px;top:885px;--anim:pop;--dur:.4s;--d:1.8s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1277px;top:904px;--anim:pop;--dur:.4s;--d:1.84s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1267px;top:921px;--anim:pop;--dur:.4s;--d:1.88s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1253px;top:933px;--anim:pop;--dur:.4s;--d:1.92s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1238px;top:943px;--anim:pop;--dur:.4s;--d:1.96s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1223px;top:953px;--anim:pop;--dur:.4s;--d:2s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1206px;top:963px;--anim:pop;--dur:.4s;--d:2.04s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1190px;top:973px;--anim:pop;--dur:.4s;--d:2.08s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1172px;top:973px;--anim:pop;--dur:.4s;--d:2.12s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1155px;top:966px;--anim:pop;--dur:.4s;--d:2.16s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1148px;top:948px;--anim:pop;--dur:.4s;--d:2.2s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1148px;top:931px;--anim:pop;--dur:.4s;--d:2.24s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1152px;top:913px;--anim:pop;--dur:.4s;--d:2.28s">
+      <img class="abs a" src="assets/s5-bead.svg" alt="" style="left:1155px;top:896px;--anim:pop;--dur:.4s;--d:2.32s">
+    </div>
+    <div class="rb a" data-drag data-m="left:560px;top:1420px" style="left:1069px;top:607px;width:480.965px;height:277.535px;--anim:pop;--d:1.3s">
+      <p class="t c-cream sticker" style="transform:rotate(-7.07deg);font-size:150px;line-height:117.75px"><span class="ln">back</span><span class="ln">home</span></p>
+    </div>
+    <div class="rb a" data-drag="big" data-m="left:61px;top:337px" style="left:495.13px;top:74.22px;width:958.135px;height:606.674px;--anim:drop;--fy:-220px;--fr:6deg;--d:.1s">
+      <div class="photo-frame" style="transform:rotate(2deg)">
+        <div class="abs" style="left:-.16px;top:-440.75px;width:901.628px;height:1352.276px;filter:grayscale(1)">
+          <img class="abs" src="assets/s5-photo1.png" alt="" style="inset:0;width:100%;height:100%;object-fit:cover">
+          <img class="abs" src="assets/s5-photo2.png" alt="" style="inset:0;width:100%;height:100%;object-fit:cover;object-position:bottom">
+        </div>
+      </div>
+    </div>
+    <div class="stamp a" data-drag data-m="transform:translate(-900px,-10px)" style="position:absolute;inset:0;pointer-events:none;--anim:drop;--fx:200px;--fy:-200px;--fr:14deg;--d:.35s">
+      <div class="rb" style="left:1461.76px;top:66.52px;width:361.346px;height:443.656px"><div style="width:300px;height:400px;background:var(--cream);transform:rotate(9.41deg)"></div></div>
+      <div class="rb" style="left:1535.05px;top:38.56px;width:285.072px;height:87.529px"><img src="assets/s5-perf-h.svg" alt="" style="transform:rotate(9.41deg)"></div>
+      <div class="rb" style="left:1439.88px;top:73.45px;width:103.22px;height:379.781px"><img src="assets/s5-perf-v.svg" alt="" style="transform:rotate(-80.59deg)"></div>
+      <div class="rb" style="left:1749.66px;top:124.77px;width:103.22px;height:379.781px"><img src="assets/s5-perf-v.svg" alt="" style="transform:rotate(-80.59deg)"></div>
+      <div class="rb" style="left:1467.54px;top:446px;width:285.072px;height:87.529px"><img src="assets/s5-perf-h.svg" alt="" style="transform:rotate(9.41deg)"></div>
+      <div class="rb" style="left:1596.47px;top:111.05px;width:136.337px;height:156.914px;transform:translateX(-50%)"><p class="t" style="transform:rotate(9.41deg);font-size:200px;line-height:300px;color:transparent;-webkit-text-stroke:5px var(--dark)">5</p></div>
+      <div class="rb" style="left:1724.26px;top:123.93px;width:140.878px;height:56.922px;transform:translateX(-50%)"><p class="t c-dark" style="transform:rotate(9.41deg);font-size:50px;line-height:300px">euro</p></div>
+      <div class="rb" style="left:1498.23px;top:396.16px;width:168.502px;height:61.499px"><p class="t c-dark" style="transform:rotate(9.41deg);font-size:50px;line-height:300px">stamp</p></div>
+      <div class="rb" style="left:1514.3px;top:153.79px;width:266.801px;height:266.801px"><div style="width:232px;height:232px;transform:rotate(9.41deg)"><img src="assets/s5-stamp-arrow.svg" alt="" style="position:absolute;left:-2.5px;top:-2.5px"></div></div>
+    </div>
+    <div class="rb clip a" data-drag data-m="auto" style="left:213px;top:277px;width:160.929px;height:169.775px;--anim:fly;--fx:-400px;--fy:-200px;--d:.9s"><div style="transform:rotate(42.02deg)"><img src="assets/s5-clip60.svg" alt=""></div></div>
+    <div class="rb clip a" data-drag data-m="auto" style="left:67px;top:896px;width:185.628px;height:119.095px;--anim:fly;--fx:-300px;--fy:300px;--d:1s"><div style="transform:rotate(111.95deg)"><img src="assets/s5-clip61.svg" alt=""></div></div>
+    <div class="rb clip a" data-drag data-m="auto" style="left:1678px;top:559px;width:184.332px;height:86.618px;--anim:fly;--fx:400px;--fy:0px;--d:1.05s"><div style="transform:rotate(99.91deg) scaleY(-1)"><img src="assets/s5-clip65.svg" alt=""></div></div>
+    <div class="rb clip a" data-drag data-m="auto" style="left:301px;top:917px;width:182.638px;height:77.412px;--anim:fly;--fx:-100px;--fy:400px;--d:1.1s"><div style="transform:rotate(96.75deg)"><img src="assets/s5-clip63.svg" alt=""></div></div>
+    <div class="rb clip a" data-drag data-m="auto" style="left:135px;top:727px;width:120.405px;height:185.497px;--anim:fly;--fx:-400px;--fy:100px;--d:1.15s"><div style="transform:rotate(-22.48deg)"><img src="assets/s5-clip62.svg" alt=""></div></div>
+    <div class="rb clip a" data-drag data-m="auto" style="left:1732px;top:855px;width:170.171px;height:160.438px;--anim:fly;--fx:300px;--fy:400px;--d:1.2s"><div style="transform:rotate(48.28deg)"><img src="assets/s5-clip64.svg" alt=""></div></div>
+    <div class="rb a" data-drag="big" data-m="left:0px;top:900px" style="left:293px;top:435px;width:747.609px;height:503.096px;--anim:drop;--fx:-160px;--fy:200px;--fr:-12deg;--d:.6s">
+      <div class="card-house" style="transform:rotate(5.88deg)">
+        <img class="abs" src="assets/s5-house.svg" alt="" style="left:20px;top:109px">
+        <p class="abs t lbl c-dark" style="left:20px;bottom:20px;line-height:33px"><span class="ln">english school</span><span class="ln">lessons</span></p>
+        <p class="abs t lbl c-dark" style="right:20px;bottom:20px">07 pm</p>
+        <p class="abs t lbl c-dark" style="right:577px;top:44px;translate:0 -100%">09 am</p>
+        <img class="abs" src="assets/s5-roof.svg" alt="" style="left:31px;top:18px">
+        <img class="abs" src="assets/s5-window.svg" alt="" style="left:109.5px;top:158.5px">
+        <img class="abs" src="assets/s5-door.svg" alt="" style="left:232.5px;top:158.5px">
+        <img class="abs" src="assets/s5-chimney.svg" alt="" style="left:405.5px;top:39.5px">
+        <img class="abs" src="assets/s5-window.svg" alt="" style="left:421.5px;top:158.5px">
+        <img class="abs" src="assets/s5-smoke.svg" alt="" style="left:488.07px;top:15.68px">
+      </div>
+    </div>
+    <img class="abs a" data-drag data-m="left:264px;top:1343px" src="assets/s5-tape-bottom.svg" alt="" style="left:557px;top:878px;--anim:stick;--dur:.75s;--ez:cubic-bezier(.3,.7,.2,1);--fr:-9deg;--d:1.45s">
+    <div class="rb dot a" data-drag data-m="auto" style="left:37px;top:80px;width:123px;height:123px;--anim:pop;--d:1.5s"><div><img src="assets/s5-dot-teal.svg" alt=""><span class="t c-cream">3</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:214px;top:539px;width:123px;height:123px;--anim:pop;--d:1.55s"><div><img src="assets/s5-dot-teal.svg" alt=""><span class="t c-cream">1</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:1806px;top:173px;width:159.407px;height:159.407px;--anim:pop;--d:1.6s"><div style="transform:rotate(21.41deg)"><img src="assets/s5-dot-teal.svg" alt=""><span class="t c-cream">3</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:119px;top:97px;width:156.896px;height:156.896px;--anim:pop;--d:1.65s"><div style="transform:rotate(-19.42deg)"><img src="assets/s5-dot-red.svg" alt=""><span class="t c-cream">5</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:1604px;top:786px;width:156.896px;height:156.896px;--anim:pop;--d:1.7s"><div style="transform:rotate(-19.42deg)"><img src="assets/s5-dot-red.svg" alt=""><span class="t c-cream">5</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:46.31px;top:263.31px;width:163.184px;height:163.184px;--anim:pop;--d:1.75s"><div style="transform:rotate(24.74deg)"><img src="assets/s5-dot-cream.svg" alt=""><span class="t c-red">8</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:184px;top:11px;width:138.15px;height:138.15px;--anim:pop;--d:1.8s"><div style="transform:rotate(7.58deg)"><img src="assets/s5-dot-cream.svg" alt=""><span class="t c-dark">4</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:1519px;top:859px;width:138.15px;height:138.15px;--anim:pop;--d:1.85s"><div style="transform:rotate(7.58deg)"><img src="assets/s5-dot-cream.svg" alt=""><span class="t c-dark">6</span></div></div>
+    <img class="abs a" data-drag data-m="left:290px;top:267px" src="assets/s5-tape1.svg" alt="" style="left:1189.93px;top:277.38px;transform:rotate(9.33deg);--anim:stick;--dur:.75s;--ez:cubic-bezier(.3,.7,.2,1);--fr:7deg;--d:1.1s">
+    <div class="rb dot a" data-drag data-m="auto" style="left:1737px;top:260px;width:127.033px;height:127.033px;--anim:pop;--d:1.9s"><div style="transform:rotate(1.91deg)"><img src="assets/s5-dot-red.svg" alt=""><span class="t c-cream">2</span></div></div>
+    <img class="abs a" data-drag data-m="left:259px;top:712px" src="assets/s5-tape2.svg" alt="" style="left:693.19px;top:449.53px;transform:rotate(11.86deg);--anim:stick;--dur:.75s;--ez:cubic-bezier(.3,.7,.2,1);--fr:-5deg;--d:1.2s">
+    <img class="abs a" data-drag data-m="left:479px;top:832px" src="assets/s5-tape3.svg" alt="" style="left:913px;top:569.1px;--anim:stick;--dur:.75s;--ez:cubic-bezier(.3,.7,.2,1);--fr:10deg;--d:1.3s">
+    <img class="abs a" data-drag src="assets/s5-tape4.svg" alt="" style="left:72.39px;top:133.11px;transform:rotate(-27.85deg);--anim:stick;--dur:.75s;--ez:cubic-bezier(.3,.7,.2,1);--fr:-7deg;--d:.9s">
+    <img class="abs a" data-drag src="assets/s5-tape5.svg" alt="" style="left:265.9px;top:131px;--anim:stick;--dur:.75s;--ez:cubic-bezier(.3,.7,.2,1);--fr:6deg;--d:1s">
+    <img class="abs a" data-drag data-m="left:418px;top:375px" src="assets/s5-tape6.svg" alt="" style="left:1317.79px;top:384.89px;transform:rotate(13.88deg);--anim:stick;--dur:.75s;--ez:cubic-bezier(.3,.7,.2,1);--fr:-10deg;--d:1.25s">
+    <button class="chip hint bg-cream a" type="button" style="left:960px;top:36px;transform:translateX(-50%);--anim:fadeIn;--d:2.6s" data-m="left:540px;top:1830px"><span class="c-dark">можно перетащить</span></button>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="slide" id="s6" aria-label="ёж!">
+  <div class="stage" style="background:var(--red)">
+    <h2 class="abs t c-cream" data-split data-m="left:540px;bottom:770px;font-size:380px" style="left:980px;bottom:294px;transform:translateX(-50%);font-size:650px;line-height:150px;--anim:bounceIn;--dur:1.2s;--ez:linear;--base:.5s;--step:.18s">ёж!</h2>
+    <img class="abs a" src="assets/s6-dash.svg" alt="" data-m="left:-295px;top:1148.5px" style="left:125px;top:784.5px;--anim:wipeX;--dur:1.2s">
+    <img class="abs a" src="assets/s6-dash.svg" alt="" data-m="left:-295px;top:882.5px" style="left:125px;top:331.5px;--anim:wipeX;--dur:1.2s;--d:.1s">
+    <img class="abs a" src="assets/s6-dash.svg" alt="" data-m="left:-295px;top:844.5px" style="left:125px;top:266.5px;--anim:wipeX;--dur:1.2s;--d:.2s">
+    <p class="abs t lbl c-cream a" style="left:725px;top:179px;--anim:fadeDown;--d:1.6s" data-m="left:540px;top:720px;transform:translateX(-50%)">Marginalis regular 650pt</p>
+    <div class="chip bg-dark a" data-m="left:80px;top:1118px" style="left:165.59px;top:759px;transform:translateX(-50%);--anim:fadeLeft;--d:.3s"><span class="c-cream">0</span></div>
+    <div class="chip bg-dark a" data-m="left:95px;top:852px" style="left:185.59px;top:306px;transform:translateX(-50%);--anim:fadeLeft;--d:.4s"><span class="c-cream">700</span></div>
+    <div class="chip bg-dark a" data-m="left:1000px;top:814px" style="left:186.09px;top:241px;transform:translateX(-50%);--anim:fadeLeft;--d:.5s"><span class="c-cream">800</span></div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="slide" id="s7" aria-label="Marginalis vs handwriting">
+  <div class="stage" style="background:var(--dark)">
+    <div class="a" data-m="--anim:fromBottom" style="position:absolute;inset:0;--anim:fromRight;--dur:1.2s;--d:.2s">
+      <img class="abs" src="assets/s7-paper.svg" alt="" style="left:908px;top:-220px" data-m="left:-13px;top:693px;transform:rotate(90deg)">
+      <div class="chip bg-dark" style="left:1122.59px;top:60px;transform:translateX(-50%)" data-m="left:60px;top:990px;transform:none"><span class="c-cream">handwriting</span></div>
+      <img class="abs a" data-m="left:503px;top:1136px" src="assets/s7-dot.svg" alt="" style="left:1441px;top:224px;--anim:pop;--d:1.6s">
+      <img class="abs a" data-m="left:108px;top:1242px" src="assets/s7-dot.svg" alt="" style="left:1046px;top:330px;--anim:pop;--d:1.75s">
+      <img class="abs a" data-m="left:380px;top:1389px" src="assets/s7-dot.svg" alt="" style="left:1318px;top:477px;--anim:pop;--d:2.2s">
+      <img class="abs a" data-m="left:202px;top:1343px" src="assets/s7-dot.svg" alt="" style="left:1140px;top:431px;--anim:pop;--d:1.9s">
+      <img class="abs a" data-m="left:563px;top:1325px" src="assets/s7-dot.svg" alt="" style="left:1501px;top:413px;--anim:pop;--d:2.05s">
+      <img class="abs a" data-m="left:93px;top:1495px" src="assets/s7-dot.svg" alt="" style="left:1031px;top:583px;--anim:pop;--d:2.35s">
+      <img class="abs a" data-m="left:722px;top:1532px" src="assets/s7-dot.svg" alt="" style="left:1660px;top:620px;--anim:pop;--d:2.5s">
+      <img class="abs a" data-m="left:379px;top:1690px" src="assets/s7-dot.svg" alt="" style="left:1317px;top:778px;--anim:pop;--d:2.8s">
+      <img class="abs a" data-m="left:159px;top:1644px" src="assets/s7-dot.svg" alt="" style="left:1097px;top:732px;--anim:pop;--d:2.65s">
+      <img class="abs" src="assets/s7-photo.png" alt="Рукописный текст отца" data-m="left:20px;top:1100px" style="left:958px;top:188px;width:918px;height:638px;object-fit:cover;object-position:top;mix-blend-mode:multiply">
+    </div>
+    <div class="chip bg-cream a" style="left:60px;top:60px;--anim:fadeDown"><span class="c-dark">Marginalis</span></div>
+    <div class="abs t c-cream" data-m="top:200px;font-size:36px;line-height:54px" style="left:60px;top:246px;font-size:33.75px;line-height:50px">
+      <span class="ln a" style="--d:.1s">Однажды, в студеную з<span class="hl" style="--d:1.6s">и</span>мнюю пору</span>
+      <span class="ln a" style="--d:.15s">Я из лесу вышел; был сильный мороз.</span>
+      <span class="ln a" style="--d:.2s">Гля<span class="hl" style="--d:1.75s">ж</span>у, поднимается медленно в гору</span>
+      <span class="ln a" style="--d:.25s">Лошадка, везущая хворосту воз.</span>
+      <span class="ln a" style="--d:.3s">И шеств<span class="hl" style="--d:1.9s">у</span>я важно, в споко<span class="hl" style="--d:2.05s">й</span>ствии чинном,</span>
+      <span class="ln a" style="--d:.35s">Лошадку ведет по<span class="hl" style="--d:2.2s">д</span> уздцы мужичок</span>
+      <span class="ln a" style="--d:.4s">В больших сапогах, в полушубке овчинном,</span>
+      <span class="ln a" style="--d:.45s">В <span class="hl" style="--d:2.35s">б</span>ольших рукавицах… а сам с ноготок!</span>
+      <span class="ln a" style="--d:.5s">Здорово парнище! — Ступай себе <span class="hl" style="--d:2.5s">м</span>имо! — </span>
+      <span class="ln a" style="--d:.55s">Уж больно ты грозен, как я погляжу!</span>
+      <span class="ln a" style="--d:.6s">Откуд<span class="hl" style="--d:2.65s">а</span> дровишки? — Из лесу, вестимо;</span>
+      <span class="ln a" style="--d:.65s">Отец, слышишь, р<span class="hl" style="--d:2.8s">у</span>бит, а я отвожу.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="slide" id="s8" aria-label="Tom Rosenthal — You Might Find Yours">
+  <div class="stage" style="background:var(--cream)">
+    <div class="abs" style="inset:0;transform-origin:0 0" data-m="transform:translate(16px,660px) scale(.56)">
+    <div class="abs t c-dark" style="left:76px;top:220px;width:1769px;font-size:150px;line-height:140px;white-space:normal">
+      <span class="ln a" style="white-space:pre;--anim:fadeLeft;--d:.2s">the people </span>
+      <span class="ln a" style="white-space:pre;--anim:fadeLeft;--d:.7s">            that we meet </span>
+      <span class="ln a" style="white-space:pre;--anim:fadeLeft;--d:1.2s">the smells,   </span>
+      <span class="ln a" style="white-space:pre;--anim:fadeLeft;--d:1.7s">                 the sounds,</span>
+      <span class="ln a" style="white-space:pre;--anim:fadeLeft;--d:2.2s">the sights, the skies</span>
+    </div>
+    <div class="abs a" style="left:1009px;top:164px;width:258px;height:161px;overflow:hidden;--anim:pop;--d:.5s"><img class="abs" src="assets/s8-sprite.png" alt="" style="height:857.14%;left:-25.33%;top:-496.43%;width:398.22%"></div>
+    <div class="abs a" style="left:334px;top:333px;width:258px;height:161px;overflow:hidden;--anim:pop;--d:.95s"><img class="abs" src="assets/s8-sprite.png" alt="" style="height:857.14%;left:-151.92%;top:-496.43%;width:398.22%"></div>
+    <div class="abs a" style="left:1051px;top:484px;width:226px;height:136px;border-radius:2px;overflow:hidden;--anim:pop;--d:1.5s"><img class="abs" src="assets/s8-sprite.png" alt="" style="height:920%;left:-289.75%;top:-536.1%;width:414.28%"></div>
+    <div class="abs a" style="left:586px;top:599px;width:243px;height:150px;overflow:hidden;--anim:pop;--d:1.95s"><img class="abs" src="assets/s8-sprite.png" alt="" style="height:868.57%;left:-275.56%;top:-619.26%;width:398.22%"></div>
+    </div>
+    <p class="abs t c-dark a" data-m="left:60px;top:520px;font-size:44px" style="left:76px;top:148px;font-size:45px;line-height:140px;--anim:fadeDown">Tom Rosenthal ‘You Might Find Yours’</p>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="slide" id="s9" aria-label="Маргиналии / Marginalia">
+  <div class="stage" style="background:var(--dark)">
+    <div class="abs a" data-m="height:960px;width:1080px" style="left:0;bottom:0;width:1920px;height:540px;background:var(--cream);--anim:fromBottom;--dur:1s;--d:.6s"></div>
+    <p class="abs t c-cream a" data-m="left:60px;top:200px;width:960px;font-size:56px;line-height:68px" style="left:196px;top:144px;width:1537px;font-size:60px;line-height:70px;white-space:normal;--d:.15s"><span class="ulw">Маргиналии</span> <span class="c-teal">(от лат. margo «край»)</span> — рисунки и записи на полях книг, рукописей, писем[1], содержащие комментарии, толкования, мнения относительно фрагментов текста или мысли, вызванные ими</p>
+    <img class="abs a" data-m="display:none" src="assets/s9-wave.svg" alt="" style="left:184.5px;top:190.5px;--anim:wipeX;--dur:.8s;--d:.9s">
+    <img class="abs a" data-m="display:none" src="assets/s9-asterisk.svg" alt="" style="left:1681.5px;top:195.5px;--anim:pop;--d:1.1s">
+    <p class="abs t c-dark a" data-m="left:60px;top:1160px;width:960px;font-size:56px;line-height:68px" style="left:187px;top:685px;width:1537px;font-size:60px;line-height:70px;white-space:normal;--d:1.2s">Marginalia (or apostils) are marks made in the <span class="ul">margins</span> of a book or other document. They may be scribbles, comments, <span class="ul">glosses</span> (annotations), <span class="ul">critiques</span>, <span class="ul">doodles</span>, <span class="ul">drolleries</span>, or <span class="ul">illuminations</span></p>
+    <img class="abs a" data-m="display:none" src="assets/s9-u53.svg" alt="" style="left:388.5px;top:803.5px;--anim:wipeX;--dur:.5s;--d:1.8s">
+    <img class="abs a" data-m="display:none" src="assets/s9-u54.svg" alt="" style="left:1321.5px;top:873.5px;--anim:wipeX;--dur:.5s;--d:2s">
+    <img class="abs a" data-m="display:none" src="assets/s9-u55.svg" alt="" style="left:667.98px;top:949.26px;--anim:wipeX;--dur:.5s;--d:2.2s">
+    <img class="abs a" data-m="display:none" src="assets/s9-u56.svg" alt="" style="left:999.7px;top:947.09px;--anim:wipeX;--dur:.5s;--d:2.35s">
+    <img class="abs a" data-m="display:none" src="assets/s9-u57.svg" alt="" style="left:1299.97px;top:948.67px;--anim:wipeX;--dur:.5s;--d:2.5s">
+    <img class="abs a" data-m="display:none" src="assets/s9-u58.svg" alt="" style="left:283.3px;top:1020.2px;--anim:wipeX;--dur:.5s;--d:2.65s">
+    <div class="chip bg-dark a" data-m="left:60px;top:1040px" style="left:187px;top:604px;--anim:fadeLeft;--d:1.1s"><span class="c-cream">english</span></div>
+    <div class="chip bg-cream a" data-m="left:60px;top:80px" style="left:187px;top:60px;--anim:fadeLeft"><span class="c-dark">russian</span></div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide" id="s10" aria-label="Regular, bold, rounded">
+  <div class="stage" style="background:var(--dark)">
+    <div class="abs switcher sw-regular a" data-m="left:60px;top:640px;width:960px;height:auto;padding:64px 56px 84px" style="--anim:switchIn;--dur:1s;--d:.15s">
+      <div class="tabs" role="tablist" aria-label="Начертание">
+        <button class="chip tab on" role="tab" aria-selected="true" data-style="regular"><span>regular</span></button>
+        <button class="chip tab" role="tab" aria-selected="false" data-style="bold"><span>bold</span></button>
+        <button class="chip tab" role="tab" aria-selected="false" data-style="rounded"><span>rounded</span></button>
+      </div>
+      <p class="txt" contenteditable="plaintext-only" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Текст образца — можно заменить своим">Съешь ещё этих мягких
+французских булок,
+да выпей же чаю</p>
+    </div>
+    <p class="abs t lbl c-cream a edit-hint" data-m="left:60px;top:560px" style="left:155px;top:118px;--anim:fadeDown;--d:1.2s">кликните на текст и впишите свой</p>
+    <p class="abs t lbl c-cream a" data-m="top:1830px" style="left:60px;top:996px;--d:.6s">Marginalis 67pt</p>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide" id="s11" aria-label="Part 2: rounded">
+  <div class="stage" style="background:var(--red)">
+    <h2 class="abs t r c-cream" data-split data-m="bottom:300px;font-size:190px;line-height:190px" style="left:60px;bottom:142px;font-size:240px;line-height:200px;--base:.2s;--step:.06s">rounded</h2>
+    <p class="abs t lbl c-cream a" data-m="top:1700px" style="left:60px;top:996px;--d:.9s">Marginalis rounded 240pt</p>
+    <p class="abs t c-cream a" style="left:60px;top:60px;font-size:45px;line-height:140px;--anim:fadeDown">part 2:</p>
+    <div class="rb dot a" data-drag data-m="auto" style="left:55px;top:540px;width:123px;height:123px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.3s"><div><img src="assets/s11-dot-teal.svg" alt=""><span class="t r c-cream">3</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:310px;top:177px;width:165.535px;height:165.535px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.45s"><div style="transform:rotate(27.11deg)"><img src="assets/s11-dot-teal.svg" alt=""><span class="t r c-cream">1</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:1729px;top:69px;width:159.407px;height:159.407px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.6s"><div style="transform:rotate(21.41deg)"><img src="assets/s11-dot-teal.svg" alt=""><span class="t r c-cream">3</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:1526px;top:502px;width:155.29px;height:155.29px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.5s"><div style="transform:rotate(-18.22deg)"><img src="assets/s11-dot-teal.svg" alt=""><span class="t r c-cream">7</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:209px;top:76px;width:156.896px;height:156.896px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.35s"><div style="transform:rotate(-19.42deg)"><img src="assets/s11-dot-black.svg" alt=""><span class="t r c-cream">5</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:1747px;top:692px;width:156.896px;height:156.896px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.7s"><div style="transform:rotate(-19.42deg)"><img src="assets/s11-dot-black.svg" alt=""><span class="t r c-cream">5</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:1433px;top:579px;width:147.864px;height:147.864px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.55s"><div style="transform:rotate(13.22deg)"><img src="assets/s11-dot-black.svg" alt=""><span class="t r c-cream">9</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:117px;top:458px;width:163.184px;height:163.184px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.4s"><div style="transform:rotate(24.74deg)"><img src="assets/s11-dot-cream.svg" alt=""><span class="t r c-dark">8</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:1379px;top:355px;width:146.806px;height:146.806px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.65s"><div style="transform:rotate(-12.56deg)"><img src="assets/s11-dot-cream.svg" alt=""><span class="t r c-dark">8</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:1581px;top:32px;width:138.15px;height:138.15px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.75s"><div style="transform:rotate(7.58deg)"><img src="assets/s11-dot-cream.svg" alt=""><span class="t r c-dark">4</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:1703px;top:951px;width:138.15px;height:138.15px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.8s"><div style="transform:rotate(7.58deg)"><img src="assets/s11-dot-cream.svg" alt=""><span class="t r c-dark">6</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:1683px;top:164px;width:127.033px;height:127.033px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.85s"><div style="transform:rotate(1.91deg)"><img src="assets/s11-dot-black.svg" alt=""><span class="t r c-cream">2</span></div></div>
+    <div class="rb dot a" data-drag data-m="auto" style="left:1117px;top:692px;width:149.563px;height:149.563px;--anim:bounceIn;--dur:1.3s;--ez:linear;--d:.9s"><div style="transform:rotate(14.3deg)"><img src="assets/s11-dot-black.svg" alt=""><span class="t r c-cream">2</span></div></div>
+    <button class="chip hint bg-cream a" type="button" style="left:960px;top:36px;transform:translateX(-50%);--anim:fadeIn;--d:2.2s" data-m="left:540px;top:1830px"><span class="c-dark">можно перетащить</span></button>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="slide" id="s12" aria-label="103 symbols, rounded">
+  <div class="stage" style="background:var(--teal)">
+    <div class="abs t r glyphs c-cream" data-split data-m="left:70px;top:330px;width:960px;font-size:70px;line-height:104px;letter-spacing:12px;white-space:normal" style="--anim:chPop;--dur:.5s;--step:.012s;--base:.3s">
+      <span class="ln">abcdefghijklmnopqr</span>
+      <span class="ln">stuvwxyz</span>
+      <span class="ln">абвгдеёжзийклмноп</span>
+      <span class="ln">рстуфхцчшщъыьэюя</span>
+      <span class="ln">1234567890+−÷=≈%!?#|</span>
+      <span class="ln">()[].,:;/-–—_“’«»</span>
+    </div>
+    <div class="chip bg-cream a" style="left:360.59px;top:115px;transform:translateX(-50%);--anim:pop" data-m="left:70px;top:190px;transform:none"><span class="c-dark">103 symbols</span></div>
+    <p class="abs t lbl c-cream a" style="left:216px;top:937px;--d:1.6s" data-m="left:70px;top:1810px">Marginalis rounded 90pt</p>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="slide" id="s13" aria-label="Считалки для детей — layout sketch">
+  <div class="stage" style="background:var(--dark)">
+    <p class="abs t r c-teal" data-m="left:40px;top:900px;width:1000px;font-size:56px;line-height:80px" style="left:76px;top:293px;width:1769px;font-size:100px;line-height:100px;text-align:center;white-space:normal">
+      <span class="ln a" style="--d:.1s">Эники-беники ели вареники</span>
+      <span class="ln a" style="--d:.3s">Эники-беники - клёц!</span>
+      <span class="ln a" style="--d:.5s">Вышел весёлый матрос.</span>
+    </p>
+    <p class="abs t c-cream a" data-m="bottom:auto;font-size:26px;line-height:30px;left:471px;top:951px" style="left:837.28px;bottom:695px;font-size:20px;line-height:24px;--anim:fadeIn;--d:2.3s">увеличить интерленьяж</p>
+    <p class="abs t c-cream a" data-m="font-size:30px;line-height:36px;bottom:auto;left:760px;top:450px" style="left:1343px;bottom:930px;font-size:20px;line-height:24px;--anim:fadeIn;--d:1.9s"><span class="ln">+ детали </span><span class="ln">для заголовков</span></p>
+    <p class="abs t c-cream a" data-m="font-size:30px;line-height:36px;bottom:auto;left:210px;top:570px" style="left:800px;bottom:955px;font-size:20px;line-height:24px;--anim:fadeIn;--d:1.6s">выделить заголовок цветом</p>
+    <p class="abs t c-cream a" data-m="bottom:auto;font-size:30px;line-height:36px;left:540px;top:1522px" style="left:960px;bottom:195px;transform:translateX(-50%);font-size:20px;line-height:24px;text-align:center;--anim:fadeIn;--d:3.3s">место для основной иллюстрации</p>
+    <img class="abs a" src="assets/s13-arrows.svg" alt="" data-m="left:458px;top:950px" style="left:813.5px;top:368.5px;--anim:pop;--d:2.2s">
+    <p class="abs t c-cream a" data-m="bottom:auto;font-size:24px;line-height:28px;left:20px;top:961px;width:140px" style="left:119px;bottom:632px;width:236px;font-size:20px;line-height:24px;white-space:normal;--anim:fadeIn;--d:2.5s">уменьшить кегль для текста</p>
+    <p class="abs t c-cream a" data-m="bottom:auto;font-size:30px;line-height:36px;left:540px;top:1160px;transform:translateX(-50%);text-align:center" style="left:547px;bottom:379px;font-size:20px;line-height:24px;--anim:fadeIn;--d:2.8s"><span class="ln">добавить </span><span class="ln">информацию </span><span class="ln">ниже</span></p>
+    <p class="abs t c-cream a" data-m="font-size:30px;line-height:36px;bottom:auto;left:470px;top:330px;width:330px" style="left:224px;bottom:965px;width:236px;font-size:20px;line-height:24px;white-space:normal;--anim:fadeIn;--d:1.2s">композиция для иллюстраций</p>
+    <img class="abs a" src="assets/s13-bracket.svg" alt="" data-m="left:165px;top:959.6px;transform:scale(.55)" style="left:316.5px;top:387.5px;--anim:wipeY;--dur:.5s;--d:2.4s">
+    <p class="abs t c-teal a" data-m="left:540px;top:740px;transform:translateX(-50%);font-size:56px" style="left:708px;top:196px;font-size:45px;line-height:140px;--anim:fadeDown;--d:.7s">Считалки для детей</p>
+    <img class="abs a" src="assets/s13-swoosh.svg" alt="" data-m="left:40px;top:290px" style="left:38.61px;top:132.53px;--anim:wipeX;--dur:.9s;--d:1s">
+    <img class="abs a" src="assets/s13-leaf-r.svg" alt="" data-m="left:880px;top:590px" style="left:1236.5px;top:123.5px;--anim:wipeUp;--dur:.8s;--d:1.8s">
+    <img class="abs a" src="assets/s13-flower.svg" alt="" data-m="left:60px;top:500px" style="left:589.5px;top:80.5px;--anim:wipeY;--dur:.8s;--d:1.7s">
+    <img class="abs a" src="assets/s13-line1.svg" alt="" data-m="left:258.3px;top:1290px" style="left:706.5px;top:637.5px;--anim:wipeX;--dur:.6s;--d:2.7s">
+    <img class="abs a" src="assets/s13-line2.svg" alt="" data-m="left:290.5px;top:1338px" style="left:741.4px;top:685.54px;--anim:wipeX;--dur:.6s;--d:2.85s">
+    <img class="abs a" src="assets/s13-oval.svg" alt="" data-m="left:265.25px;top:693.3px;transform:scale(1.35)" style="left:690.76px;top:143.82px;--anim:wipeX;--dur:.9s;--d:1.4s">
+    <img class="abs a" src="assets/s13-frame1.svg" alt="" data-m="left:76px;top:1420px;transform:scale(.8);transform-origin:0 0" style="left:381.5px;top:741.5px;--anim:wipeX;--dur:1s;--d:3s">
+    <img class="abs a" src="assets/s13-frame2.svg" alt="" data-m="left:60px;top:1410px;transform:scale(.8);transform-origin:0 0" style="left:362.8px;top:729.94px;--anim:wipeY;--dur:.8s;--d:3.1s">
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="slide" id="s14" aria-label="Азбука — карточки">
+  <div class="stage" style="background:var(--dark)">
+    <div class="rb a" data-drag="big" data-m="auto" style="left:872px;top:-69px;width:283.63px;height:319.172px;--anim:drop;--d:.05s"><div class="tile bg-teal" style="transform:rotate(8.25deg)"><span>ч</span></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:1311px;top:-84px;width:324.961px;height:351.035px;--anim:drop;--d:.1s"><div class="tile bg-teal" style="transform:rotate(-18.96deg)"><span>ь</span></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:884px;top:358px;width:245px;height:287px;--anim:drop;--d:.15s"><div class="tile bg-teal"><span>ъ</span></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:1149px;top:842px;width:324.961px;height:351.035px;--anim:drop;--d:.2s"><div class="tile bg-teal" style="transform:rotate(-18.96deg)"><span>х</span></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:1648px;top:297px;width:283.63px;height:319.172px;--anim:drop;--d:.25s"><div class="tile bg-red" style="transform:rotate(8.25deg)"><span style="font-family:Marginalis">э</span></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:-34px;top:298px;width:305.639px;height:336.58px;--anim:drop;--d:.3s"><div class="tile bg-red" style="transform:rotate(-13.61deg)"><span>я</span></div></div>
+
+    <div class="rb a" data-drag="big" data-m="auto" style="left:1005px;top:724px;width:272.695px;height:310.245px;--anim:drop;--fy:-260px;--fr:14deg;--d:.4s"><div class="pcard" style="transform:rotate(-5.79deg)"><div class="pic"><img src="assets/s14-sprite1.png" alt="" style="height:766.52%;left:-424.89%;top:-503.75%;width:553.15%"></div><p>рыба</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:1034px;top:295px;width:276.996px;height:313.775px;--anim:drop;--fy:-200px;--fr:-12deg;--d:.48s"><div class="pcard" style="transform:rotate(-6.74deg)"><div class="pic"></div><p>очки</p><div class="pic2"><img src="assets/s14-sprite2.png" alt="" style="height:899.41%;left:-319.81%;top:-526.78%;width:446.72%"></div></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:613px;top:419px;width:279.759px;height:316.031px;--anim:drop;--fy:-240px;--fr:10deg;--d:.56s"><div class="pcard" style="transform:rotate(-7.36deg)"><div class="pic"><img src="assets/s14-sprite2.png" alt="" style="height:857.95%;left:-66.27%;top:-382.11%;width:619.13%"></div><p>йогурт</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:102px;top:80px;width:282.301px;height:318.095px;--anim:drop;--fy:-180px;--fr:-16deg;--d:.64s"><div class="pcard" style="transform:rotate(7.94deg)"><div class="pic" style="border-radius:0"><img src="assets/s14-sprite1.png" alt="" style="height:713.29%;left:-25.97%;top:-27.88%;width:514.74%"></div><p>апельсин</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:1541px;top:75px;width:296.73px;height:329.634px;--anim:drop;--fy:-220px;--fr:18deg;--d:.72s"><div class="pcard" style="transform:rotate(-11.36deg)"><div class="pic" style="border-radius:0"><img src="assets/s14-sprite1.png" alt="" style="height:713.29%;left:-146.5%;top:-27.88%;width:514.74%"></div><p>бабочка</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:1292px;top:178px;width:307.583px;height:338.075px;--anim:drop;--fy:-260px;--fr:-14deg;--d:.8s"><div class="pcard" style="transform:rotate(14.11deg)"><div class="pic"><img src="assets/s14-sprite1.png" alt="" style="height:713.29%;left:-270.05%;top:-29.04%;width:514.74%"></div><p>волк</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:224px;top:445px;width:245px;height:287px;--anim:drop;--fy:-200px;--fr:12deg;--d:.88s"><div class="pcard"><div class="pic"><img src="assets/s14-sprite2.png" alt="" style="height:839.59%;left:-63.13%;top:-150.2%;width:605.88%"></div><p>гусь</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:384px;top:565px;width:325.548px;height:351.458px;--anim:drop;--fy:-240px;--fr:-10deg;--d:.96s"><div class="pcard" style="transform:rotate(19.14deg)"><div class="pic"><img src="assets/s14-sprite2.png" alt="" style="height:839.59%;left:-244.93%;top:-150.2%;width:605.88%"></div><p>дом</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:1420px;top:476px;width:280.819px;height:316.893px;--anim:drop;--fy:-200px;--fr:16deg;--d:1.04s"><div class="pcard" style="transform:rotate(-7.6deg)"><div class="pic"><img src="assets/s14-sprite2.png" alt="" style="height:839.59%;left:-446.23%;top:-150.2%;width:605.88%"></div><p>ель</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:408px;top:192px;width:271.934px;height:309.618px;--anim:drop;--fy:-260px;--fr:-18deg;--d:1.12s"><div class="pcard" style="transform:rotate(-5.62deg)"><div class="pic"><img src="assets/s14-sprite1.png" alt="" style="height:713.29%;left:-268.82%;top:-144.25%;width:514.74%"></div><p>ёжик</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:639px;top:31px;width:328.094px;height:353.28px;--anim:drop;--fy:-220px;--fr:12deg;--d:1.2s"><div class="pcard" style="transform:rotate(19.91deg)"><div class="pic"><img src="assets/s14-sprite1.png" alt="" style="height:713.29%;left:-389.51%;top:-144.25%;width:514.74%"></div><p>зебра</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:31px;top:657px;width:298.905px;height:331.344px;--anim:drop;--fy:-200px;--fr:-12deg;--d:1.28s"><div class="pcard" style="transform:rotate(-11.9deg)"><div class="pic"><img src="assets/s14-sprite1.png" alt="" style="height:766.52%;left:-162.57%;top:-276.56%;width:553.15%"></div><p>индюк</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:1079px;top:57px;width:265.137px;height:303.985px;--anim:drop;--fy:-240px;--fr:14deg;--d:1.36s"><div class="pcard" style="transform:rotate(-4.15deg)"><div class="pic"><img src="assets/s14-sprite1.png" alt="" style="height:899.29%;left:-504.73%;top:-331.05%;width:648.96%"></div><p>клубника</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:833px;top:504px;width:278.476px;height:314.984px;--anim:drop;--fy:-260px;--fr:-16deg;--d:1.44s"><div class="pcard" style="transform:rotate(7.07deg)"><div class="pic"><img src="assets/s14-sprite1.png" alt="" style="height:766.52%;left:-30.63%;top:-390.32%;width:553.15%"></div><p>лошадь</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:1615px;top:560px;width:341.231px;height:362.284px;--anim:drop;--fy:-200px;--fr:10deg;--d:1.52s"><div class="pcard" style="transform:rotate(24.24deg)"><div class="pic"><img src="assets/s14-sprite2.png" alt="" style="height:857.95%;left:-66.89%;top:-497.68%;width:619.13%"></div><p>медведь</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:1222.46px;top:649.94px;width:255px;height:295.488px;--anim:drop;--fy:-240px;--fr:-12deg;--d:1.6s"><div class="pcard" style="transform:rotate(-2.03deg)"><div class="pic"><img src="assets/s14-sprite2.png" alt="" style="height:857.95%;left:-258%;top:-497.68%;width:619.13%"></div><p>носки</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:676px;top:774px;width:245px;height:287px;--anim:drop;--fy:-220px;--fr:16deg;--d:1.68s"><div class="pcard"><div class="pic"><img src="assets/s14-sprite1.png" alt="" style="height:805.12%;left:-308.12%;top:-533.22%;width:581.01%"></div><p class="reg">пингвин</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:318px;top:-46px;width:272.688px;height:310.24px;--anim:drop;--fy:-200px;--fr:-14deg;--d:1.76s"><div class="pcard" style="transform:rotate(5.79deg)"><div class="pic"><img src="assets/s14-sprite2.png" alt="" style="height:859.23%;left:-53.3%;top:-725.71%;width:620.06%"></div><p>тигр</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:1456px;top:848px;width:252.973px;height:293.775px;--anim:drop;--fy:-260px;--fr:12deg;--d:1.84s"><div class="pcard" style="transform:rotate(1.61deg)"><div class="pic"><img src="assets/s14-sprite2.png" alt="" style="height:919.13%;left:-502.26%;top:-779.03%;width:663.28%"></div><p class="reg">фонарь</p></div></div>
+    <div class="rb a" data-drag="big" data-m="auto" style="left:347px;top:879px;width:245px;height:287px;--anim:drop;--fy:-220px;--fr:-10deg;--d:1.92s"><div class="pcard"><div class="pic"></div><p>утка</p><div class="pic2"><img src="assets/s14-sprite2.png" alt="" style="height:899.41%;left:-175.3%;top:-761.24%;width:446.72%"></div></div></div>
+    <button class="chip hint bg-cream a" type="button" style="left:960px;top:36px;transform:translateX(-50%);--anim:fadeIn;--d:2.4s" data-m="left:540px;top:1830px"><span class="c-dark">можно перетащить</span></button>
+  </div>
+</section>
+
+<!-- 15 -->
+<section class="slide" id="s15" aria-label="Typeface made by">
+  <div class="stage" style="background:var(--red)">
+    <div class="a" style="position:absolute;inset:0;pointer-events:none;--d:1.3s">
+    <div class="lang en" aria-hidden="true">
+      <p class="abs t c-cream names" data-m="left:60px;top:1194px;width:1000px;font-size:110px;line-height:230px;white-space:normal" style="left:89px;top:936px;font-size:120px;line-height:120px"><span class="nm">dad</span><span class="plus"> + </span><span class="nm">mitya</span><span class="plus"> + </span><br class="mbr"><span class="nm">petr</span><span class="plus"> + </span><span class="nm">alina</span></p>
+      <div class="chip bg-cream" data-m="top:1120px" style="left:89px;top:853px"><span class="c-red">handwriting</span></div>
+      <div class="chip bg-cream" data-m="top:1120px" style="left:453px;top:853px"><span class="c-red">idea</span></div>
+      <div class="chip bg-cream" data-m="top:1350px" style="left:924px;top:853px"><span class="c-red">type design</span></div>
+      <div class="chip bg-cream" data-m="top:1350px" style="left:1351px;top:853px"><span class="c-red">case study</span></div>
+    </div>
+    <div class="lang ru">
+      <p class="abs t c-cream names" data-m="left:60px;top:1194px;width:1000px;font-size:110px;line-height:230px;white-space:normal" style="left:89px;top:936px;font-size:120px;line-height:120px"><span class="nm">Папа</span><span class="plus"> + </span><span class="nm">митя</span><span class="plus"> + </span><br class="mbr"><span class="nm">петр</span><span class="plus"> + </span><span class="nm">алина</span></p>
+      <div class="chip bg-cream" data-m="top:1120px" style="left:89px;top:853px"><span class="c-red">заметки</span></div>
+      <div class="chip bg-cream" data-m="top:1120px" style="left:540px;top:853px"><span class="c-red">идея шрифта</span></div>
+      <div class="chip bg-cream" data-m="top:1350px" style="left:980px;top:853px"><span class="c-red">шрифт</span></div>
+      <div class="chip bg-cream" data-m="top:1350px" style="left:1429px;top:853px"><span class="c-red">презентация</span></div>
+    </div>
+    </div>
+    <div class="abs credits-hit" data-m="left:0px;top:1020px;width:1080px;height:680px" style="left:40px;top:740px;width:1780px;height:340px" aria-hidden="true"></div>
+    <p class="abs t c-cream a" data-m="left:60px;top:1040px" style="left:89px;top:770px;font-size:45px;line-height:140px;--anim:fadeDown;--d:1.2s">typeface made by:</p>
+    <a class="chip dl bg-cream a" href="fonts/Marginalis.zip" download data-m="top:1730px;width:960px" style="left:60px;top:60px;--anim:pop;--d:.3s"><span class="c-red">скачать шрифт</span></a>
+    <div class="rb clip a" data-m="left:880px;top:960px" style="left:973px;top:527px;width:182.638px;height:77.412px;--anim:fly;--fx:200px;--fy:500px;--d:1s"><div style="transform:rotate(96.75deg)"><img src="assets/s15-clip63.svg" alt=""></div></div>
+    <div class="rb clip a" data-m="left:40px;top:470px" style="left:940px;top:139px;width:120.405px;height:185.497px;--anim:fly;--fx:-100px;--fy:-500px;--d:1.1s"><div style="transform:rotate(-22.48deg)"><img src="assets/s15-clip62.svg" alt=""></div></div>
+    <div class="rb a" data-m="left:164px;top:40px" style="left:1108px;top:60px;width:751.649px;height:510.58px;--anim:drop;--fx:200px;--fy:-200px;--fr:12deg;--d:.2s">
+      <div class="card-house" style="transform:rotate(6.53deg)">
+        <p class="abs t lbl c-dark" style="right:20px;bottom:20px">bay</p>
+        <p class="abs t lbl c-dark" style="left:19px;top:44px;translate:0 -100%">good</p>
+        <img class="abs" src="assets/s15-hand.svg" alt="" style="left:102.7px;top:19.95px">
+        <img class="abs" src="assets/s15-finger.svg" alt="" style="left:333.2px;top:9.45px">
+        <img class="abs" src="assets/s15-finger.svg" alt="" style="left:199.2px;top:140.45px">
+        <img class="abs" src="assets/s15-finger.svg" alt="" style="left:388.2px;top:9.45px">
+        <img class="abs" src="assets/s15-finger.svg" alt="" style="left:443.2px;top:9.45px">
+        <img class="abs" src="assets/s15-zig1.svg" alt="" style="left:284.2px;top:183.16px">
+        <img class="abs" src="assets/s15-zig2.svg" alt="" style="left:23.2px;top:64.45px;transform:rotate(180deg)">
+      </div>
+    </div>
+    <img class="abs a" src="assets/s15-tape1.svg" alt="" data-m="left:359.3px;top:-10.8px" style="left:1303.3px;top:9.23px;transform:rotate(18.3deg);--anim:stick;--dur:.75s;--ez:cubic-bezier(.3,.7,.2,1);--fr:8deg;--d:.9s">
+    <img class="abs a" src="assets/s15-tape2.svg" alt="" data-m="left:305.5px;top:470.2px" style="left:1249.49px;top:490.16px;transform:rotate(9.2deg);--anim:stick;--dur:.75s;--ez:cubic-bezier(.3,.7,.2,1);--fr:-6deg;--d:1s">
+    <div class="rb a" data-m="left:152px;top:520px" style="left:-59px;top:230px;width:775.203px;height:465.551px;--anim:drop;--fx:-200px;--fy:-100px;--fr:-10deg;--d:.4s">
+      <img src="assets/s15-photo.png" alt="Записка, написанная рукой папы" style="width:751.785px;height:422.292px;object-fit:cover;transform:rotate(-3.35deg)">
+    </div>
+    <img class="abs a" src="assets/s15-tape3.svg" alt="" data-m="left:344.6px;top:843.5px" style="left:133.63px;top:553.48px;transform:rotate(-4.17deg);--anim:stick;--dur:.75s;--ez:cubic-bezier(.3,.7,.2,1);--fr:5deg;--d:1.2s">
+  </div>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

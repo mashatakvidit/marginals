@@ -1,0 +1,306 @@
+@font-face {
+  font-family: "Marginalis";
+  src: url("fonts/Marginalis-Regular.woff2") format("woff2"),
+       url("fonts/Marginalis-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: "Marginalis Rounded";
+  src: url("fonts/Marginalis-Rounded.woff2") format("woff2"),
+       url("fonts/Marginalis-Rounded.woff") format("woff");
+  font-weight: 400;
+  font-display: block;
+}
+
+@property --lift {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+:root {
+  --dark: #191919;
+  --cream: #f2e0ce;
+  --red: #b5372d;
+  --teal: #5d8b8f;
+  --k: 1;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: var(--dark); }
+/* touch: native snapping; mouse/trackpad paging is handled in script.js */
+@media (pointer: coarse) { html { scroll-snap-type: y mandatory; } }
+body { background: var(--dark); color: var(--cream); font-family: "Marginalis", sans-serif; overflow-x: hidden; font-synthesis: none; }
+/* the family ships one weight per style — never let the browser fake a bold */
+h1, h2 { font-weight: 400; }
+img { display: block; max-width: none; -webkit-user-drag: none; }
+
+/* ---------- slide scaffold ---------- */
+.slide {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+.stage {
+  position: absolute;
+  left: 0; top: 0;
+  width: 1920px; height: 1080px;
+  transform-origin: 0 0;
+  transform: scale(var(--k));
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.abs { position: absolute; }
+.t { font-family: "Marginalis"; white-space: nowrap; text-box: trim-both cap alphabetic; }
+.r { font-family: "Marginalis Rounded"; }
+.ln { display: block; }
+.lbl { font-size: 33.75px; line-height: 45.14px; }
+.c-dark { color: var(--dark); }
+.c-cream { color: var(--cream); }
+.c-red { color: var(--red); }
+.c-teal { color: var(--teal); }
+
+.chip {
+  position: absolute;
+  display: flex; align-items: center; justify-content: center;
+  height: 54.093px;
+  padding: 15.047px 30.093px;
+  border-radius: 376.164px;
+  white-space: nowrap;
+}
+.chip > span { font-size: 33.75px; line-height: 45.14px; text-box: trim-both cap alphabetic; }
+.bg-dark { background: var(--dark); }
+.bg-cream { background: var(--cream); }
+.bg-red { background: var(--red); }
+.bg-teal { background: var(--teal); }
+
+/* rotated box: outer = Figma bounding box, inner = rotated node */
+.rb { position: absolute; display: flex; align-items: center; justify-content: center; }
+.rb > * { flex: none; position: relative; }
+
+.clip > div { width: 56.991px; height: 177.169px; }
+.clip img { position: absolute; left: -2.502px; top: -2.498px; }
+
+.dot > div { width: 123px; height: 123px; display: grid; place-items: center; }
+.dot img { position: absolute; inset: 0; }
+.dot span { position: relative; font-size: 80px; line-height: 117.75px; text-box: trim-both cap alphabetic; }
+
+/* ---------- animation system ---------- */
+.js .a, .js .ch { opacity: 0; }
+.is-in .a {
+  animation: var(--anim, fadeUp) var(--dur, .9s) var(--ez, var(--ease)) var(--d, 0s) both;
+}
+.ch { display: inline-block; }
+.is-in .ch {
+  animation: var(--anim, chUp) var(--dur, .7s) var(--ez, var(--ease))
+             calc(var(--base, 0s) + var(--i) * var(--step, .03s)) both;
+}
+/* entrance finished: release the element so hover / drag / WAAPI can move it */
+.is-in .a.done, .is-in .ch.done { animation: none; opacity: 1; }
+
+@keyframes fadeUp   { from { opacity: 0; translate: 0 60px; } to { opacity: 1; translate: 0 0; } }
+@keyframes fadeDown { from { opacity: 0; translate: 0 -40px; } to { opacity: 1; translate: 0 0; } }
+@keyframes fadeIn   { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeLeft { from { opacity: 0; translate: -80px 0; } to { opacity: 1; translate: 0 0; } }
+@keyframes chUp     { from { opacity: 0; translate: 0 .6em; } to { opacity: 1; translate: 0 0; } }
+@keyframes chPop {
+  0% { opacity: 0; scale: .2; }
+  60% { opacity: 1; scale: 1.18; }
+  100% { opacity: 1; scale: 1; }
+}
+@keyframes pop {
+  0% { opacity: 0; scale: .2; }
+  60% { opacity: 1; scale: 1.12; }
+  80% { scale: .96; }
+  100% { opacity: 1; scale: 1; }
+}
+/* thrown onto the table */
+@keyframes drop {
+  0% { opacity: 0; translate: var(--fx, 0px) var(--fy, -160px); scale: 1.25; rotate: var(--fr, -10deg); }
+  60% { opacity: 1; }
+  100% { opacity: 1; translate: 0 0; scale: 1; rotate: 0deg; }
+}
+/* paperclips flying in */
+@keyframes fly {
+  from { opacity: 0; translate: var(--fx, 0px) var(--fy, -500px); rotate: var(--fr, 160deg); }
+  to { opacity: 1; translate: 0 0; rotate: 0deg; }
+}
+@keyframes bounceIn {
+  0% { opacity: 0; translate: 0 -900px; }
+  55% { opacity: 1; translate: 0 0; }
+  70% { translate: 0 -60px; }
+  84% { translate: 0 0; }
+  92% { translate: 0 -14px; }
+  100% { opacity: 1; translate: 0 0; }
+}
+@keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -16px; } }
+@keyframes wipeX  { from { opacity: 1; clip-path: inset(0 100% 0 0); } to { opacity: 1; clip-path: inset(0 0 0 0); } }
+@keyframes wipeY  { from { opacity: 1; clip-path: inset(0 0 100% 0); } to { opacity: 1; clip-path: inset(0 0 0 0); } }
+@keyframes wipeUp { from { opacity: 1; clip-path: inset(100% 0 0 0); } to { opacity: 1; clip-path: inset(0 0 0 0); } }
+@keyframes fromRight { from { opacity: 1; translate: 110% 0; } to { opacity: 1; translate: 0 0; } }
+@keyframes fromBottom { from { opacity: 1; translate: 0 100%; } to { opacity: 1; translate: 0 0; } }
+@keyframes toTeal { from { color: var(--cream); } to { color: var(--teal); } }
+/* tape: lifted off the table, slapped down, settles */
+@keyframes stick {
+  0%   { opacity: 0; translate: var(--fx, -40px) var(--fy, -70px); scale: 1.35; rotate: var(--fr, -8deg); filter: drop-shadow(0 40px 24px rgba(0, 0, 0, .45)); }
+  55%  { opacity: 1; translate: 0 0; scale: .96; rotate: 0deg; filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .25)); }
+  75%  { scale: 1.02; }
+  100% { opacity: 1; translate: 0 0; scale: 1; rotate: 0deg; filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0)); }
+}
+@keyframes tear { from { --lift: var(--lift0); } to { --lift: 0px; } }
+
+/* ---------- 1 · hero ---------- */
+#s1 .stage {
+  background: var(--cream);
+  --lift0: 760px; --lift: var(--lift0);
+  --pl: -457px; --pt: -3241px;   /* torn paper */
+  --tl: 192px;  --tt: 197px;     /* title */
+}
+#s1.is-in .stage { animation: tear 1.6s cubic-bezier(.65, 0, .25, 1) .9s both; }
+#s1 .paper { left: var(--pl); top: var(--pt); width: 2834px; height: 3894px; transform: translateY(var(--lift)); }
+#s1 .title { left: var(--tl); top: var(--tt); font-size: 180px; line-height: 180px; }
+#s1 .title.masked {
+  mask-image: url("assets/s1-mask.svg");
+  mask-size: 2834px 3894px;
+  mask-repeat: no-repeat;
+  mask-position: calc(var(--pl) - var(--tl)) calc(var(--pt) - var(--tt) + var(--lift));
+}
+
+/* ---------- 3 / 12 · glyph set ---------- */
+.glyphs { left: 216px; top: 209px; font-size: 90px; line-height: 120px; letter-spacing: 27px; }
+
+/* ---------- 5 · collage ---------- */
+.sticker { filter: url(#sticker); }
+.photo-frame { width: 938.665px; height: 574.264px; background: #393939; border: 20px solid #eaeaea; overflow: hidden; }
+.card-house { width: 707px; height: 433px; background: var(--cream); overflow: hidden; }
+
+/* ---------- 7 · handwriting ---------- */
+#s7 .hl { color: var(--cream); }
+#s7.is-in .hl { animation: toTeal .4s ease var(--d) both; }
+
+/* ---------- 10 · styles switcher ---------- */
+.faux-bold { -webkit-text-stroke: 2.2px currentColor; }
+
+.switcher {
+  left: 155px; top: 188px; width: 1612px; min-height: 583px;
+  border-radius: 30px;
+  padding: 62px 121px 0;
+  background: var(--card-bg);
+  color: var(--card-fg);
+  transition: background-color .5s var(--ease), color .5s var(--ease);
+}
+.sw-regular { --card-bg: var(--cream); --card-fg: var(--dark); }
+.sw-bold    { --card-bg: var(--red);   --card-fg: var(--cream); }
+.sw-rounded { --card-bg: var(--teal);  --card-fg: var(--cream); }
+.switcher .tabs { display: flex; gap: 20px; }
+.switcher .tab {
+  position: relative; cursor: pointer; font: inherit;
+  background: transparent; color: var(--card-fg);
+  border: 3px solid var(--card-fg);
+  transition: background-color .35s var(--ease), color .35s var(--ease), border-color .35s, scale .2s;
+}
+.switcher .tab:hover { scale: 1.05; }
+.switcher .tab.on { background: var(--card-fg); color: var(--card-bg); }
+.switcher { padding-bottom: 80px; }
+.switcher .txt {
+  margin-top: 66px; font-size: 90px; line-height: 120px;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+  text-box: trim-both cap alphabetic;
+  transition: opacity .25s;
+  cursor: text; outline: none; caret-color: currentColor;
+  user-select: text; -webkit-user-select: text;
+  border-radius: 12px;
+}
+.switcher .txt:focus { outline: 3px dashed currentColor; outline-offset: 20px; }
+.switcher .txt:empty::before { content: "впишите свой текст"; opacity: .45; }
+.edit-hint { opacity: .75; }
+.tab:focus-visible, .hint:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; }
+.switcher .txt.swap { opacity: 0; }
+@keyframes switchIn { from { opacity: 0; scale: .8; translate: 0 60px; } to { opacity: 1; scale: 1; translate: 0 0; } }
+
+/* ---------- 11 · rounded ---------- */
+#s11.is-in .dot > div { animation: bob 3.2s ease-in-out calc(var(--d) + 1.4s) infinite; }
+
+/* ---------- 14 · cards ---------- */
+.tile, .pcard { width: 245px; height: 287px; border: 3px solid var(--dark); border-radius: 10px; }
+.tile { display: grid; place-items: center; }
+.tile span { font-family: "Marginalis Rounded"; font-size: 200px; line-height: 40px; color: var(--cream); text-box: trim-both cap alphabetic; }
+.pcard { background: var(--cream); padding: 30px; display: flex; flex-direction: column; gap: 30px; }
+.pcard .pic { position: relative; width: 179px; height: 173px; border-radius: 2px; overflow: hidden; flex: none; }
+.pcard .pic img { position: absolute; }
+.pcard .pic2 { position: absolute; left: calc(50% + .5px); top: 46px; width: 204px; height: 135px; transform: translateX(-50%); border-radius: 2px; overflow: hidden; }
+.pcard .pic2 img { position: absolute; }
+.pcard p { width: 179px; font-family: "Marginalis Rounded"; font-size: 25px; line-height: 40px; text-align: center; color: var(--dark); text-box: trim-both cap alphabetic; }
+.pcard p.reg { font-family: "Marginalis"; }
+@media (hover: hover) {
+  #s14 .rb.done { transition: scale .3s var(--ease); }
+  #s14 .rb.done:hover { scale: 1.06; }
+}
+
+/* ---------- drag & drop (5, 11, 14) ---------- */
+[data-drag] { cursor: grab; touch-action: none; }
+.stamp > * { pointer-events: auto; }
+.dragging { cursor: grabbing; filter: drop-shadow(0 24px 30px rgba(0, 0, 0, .35)); }
+.returning { transition: left .6s var(--ease), top .6s var(--ease); }
+@media (pointer: coarse) {
+  [data-drag="big"] { touch-action: auto; cursor: auto; }
+}
+.hint { z-index: 900; border: 0; cursor: pointer; font: inherit; transition: scale .2s; }
+.hint:hover { scale: 1.05; }
+
+/* ---------- 15 · finale ---------- */
+.lang { position: absolute; inset: 0; pointer-events: none; }
+.lang > * { transition: opacity .45s var(--ease), translate .45s var(--ease); }
+.credits-hit { z-index: 10; }
+.lang.en > * { opacity: 0; translate: 0 -30px; }
+.lang.en > .flip { opacity: 1; translate: 0 0; }
+.lang.ru > .flip { opacity: 0; translate: 0 30px; }
+
+.dl {
+  z-index: 50; height: auto; padding: 26px 44px;
+  text-decoration: none; cursor: pointer;
+  transition: scale .25s var(--ease), box-shadow .3s;
+}
+.dl > span { font-size: 45px; line-height: 56px; }
+.dl:hover { scale: 1.06; box-shadow: 0 0 0 14px rgba(242, 224, 206, .25); }
+.dl:focus-visible { outline: 4px solid var(--dark); outline-offset: 6px; }
+.is-in .dl.done { animation: dlPulse 2.4s ease-in-out 1s 3; }
+@keyframes dlPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(242, 224, 206, .45); }
+  50% { box-shadow: 0 0 0 18px rgba(242, 224, 206, 0); }
+}
+
+/* ---------- mobile: portrait 1080×1920 stages ---------- */
+.m .slide { aspect-ratio: 9 / 16; }
+.m .stage { width: 1080px; height: 1920px; }
+.m .lbl { font-size: 40px; line-height: 52px; }
+.m .chip { height: auto; padding: 18px 36px; }
+.m .chip > span { font-size: 40px; line-height: 52px; }
+.m #s1 .stage { --lift0: 1250px; --pt: -2911px; --tl: 60px; --tt: 680px; }
+.m #s1 .title { font-size: 112px; line-height: 122px; }
+.m #s9 .ul { text-decoration: underline 4px var(--teal); text-underline-offset: 14px; }
+.m #s9 .ulw { text-decoration: underline wavy 4px var(--teal); text-underline-offset: 14px; }
+.m .switcher .txt { margin-top: 56px; font-size: 62px; line-height: 86px; }
+.m .switcher { min-height: 0; }
+.m .dl { justify-content: center; padding: 44px 0; }
+.m .dl > span { font-size: 64px; line-height: 76px; }
+.mbr { display: none; }
+.m .mbr { display: inline; }
+.m #s15 .lang .chip > span { font-size: 34px; line-height: 44px; }
+.m .switcher .tabs { gap: 16px; }
+.m .glyphs .ln { text-wrap: balance; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .a, .js .ch { opacity: 1; }
+  .is-in .a, .is-in .ch, #s1.is-in .stage, #s11.is-in .dot > div { animation: none !important; }
+  #s1 .stage { --lift: 0px; }
+  #s7 .hl { color: var(--teal); }
+}
