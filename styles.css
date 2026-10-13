@@ -170,7 +170,8 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
   0%   { rotate: 0deg; translate: 0 0; }
   12%  { rotate: calc(var(--r1) * .15); }
   48%  { rotate: var(--r1); translate: 0 0; animation-timing-function: cubic-bezier(.5, 0, .9, .45); }
-  100% { rotate: var(--r2); translate: var(--tx) 1500px; }
+  99%  { visibility: visible; }
+  100% { rotate: var(--r2); translate: var(--tx) 2600px; visibility: hidden; }
 }
 /* sheets bleed past the 1920×1080 frame (--sx/--sy/--sw/--sh) so letterbox margins match */
 .tearoff {
@@ -229,7 +230,7 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
   -webkit-mask-image: url("assets/s7-tear.svg"); mask-image: url("assets/s7-tear.svg");
   --sx: -600px; --sy: -600px; --sw: 2700px; --sh: 2280px;
   transform-origin: 1567px 1680px;
-  --r1: -6deg; --r2: -24deg; --tx: -120px;
+  --r1: -5deg; --r2: -9deg; --tx: -80px;
 }
 .m #s7 .tearoff { --sx: 0px; --sy: 0px; --sw: 1080px; --sh: 1920px; -webkit-mask-image: url("assets/s7-tear-m.svg"); mask-image: url("assets/s7-tear-m.svg"); transform-origin: 0 929px; --r1: 7deg; --r2: 26deg; --tx: -40px; }
 #s7.is-in .tearoff { animation: tearOff 1.8s cubic-bezier(.45, 0, .55, 1) .5s both; }
