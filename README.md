@@ -7,6 +7,6 @@ Static site, no build step: open `index.html` or serve the folder with any stati
 
 - `index.html`, `styles.css`, `script.js` — the site (15 slides, scroll-triggered animation, drag & drop, live text in the style switcher)
 - `assets/` — artwork exported from Figma
-- `fonts/` — web fonts and `Marginalis.zip` download
+- `fonts/` — web fonts and `marginalis_2026-10-12.zip` download
 
 Typeface: dad + Mitya + Petr + Alina.

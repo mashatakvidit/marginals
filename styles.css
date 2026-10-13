@@ -23,12 +23,6 @@
   font-display: block;
 }
 
-@property --lift {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0px;
-}
-
 :root {
   --dark: #191919;
   --cream: #f2e0ce;
@@ -169,24 +163,47 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
   75%  { scale: 1.02; }
   100% { opacity: 1; translate: 0 0; scale: 1; rotate: 0deg; filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0)); }
 }
-@keyframes tear { from { --lift: var(--lift0); } to { --lift: 0px; } }
+/* tear-off calendar: the sheet hangs on one end while the tear runs along the
+   edge, then breaks free and drops out of frame */
+@keyframes tearOff {
+  0%   { rotate: 0deg; translate: 0 0; }
+  12%  { rotate: calc(var(--r1) * .15); }
+  48%  { rotate: var(--r1); translate: 0 0; animation-timing-function: cubic-bezier(.5, 0, .9, .45); }
+  100% { rotate: var(--r2); translate: var(--tx) 1500px; }
+}
+.tearoff {
+  position: absolute; inset: 0;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: 0 0; mask-position: 0 0;
+  -webkit-mask-size: 1920px 1080px; mask-size: 1920px 1080px;
+  will-change: transform;
+}
+.m .tearoff { -webkit-mask-size: 1080px 1920px; mask-size: 1080px 1920px; }
 
 /* ---------- 1 · hero ---------- */
 #s1 .stage {
   background: var(--cream);
-  --lift0: 760px; --lift: var(--lift0);
   --pl: -457px; --pt: -3241px;   /* torn paper */
   --tl: 158px;  --tt: 197px;     /* title */
 }
-#s1.is-in .stage { animation: tear 1.6s cubic-bezier(.65, 0, .25, 1) .9s both; }
-#s1 .paper { left: var(--pl); top: var(--pt); width: 2834px; height: 3894px; transform: translateY(var(--lift)); }
+#s1 .paper { left: var(--pl); top: var(--pt); width: 2834px; height: 3894px; }
 #s1 .title { left: var(--tl); top: var(--tt); font-size: 180px; line-height: 180px; }
 #s1 .title.masked {
   mask-image: url("assets/s1-mask.svg");
   mask-size: 2834px 3894px;
   mask-repeat: no-repeat;
-  mask-position: calc(var(--pl) - var(--tl)) calc(var(--pt) - var(--tt) + var(--lift));
+  mask-position: calc(var(--pl) - var(--tl)) calc(var(--pt) - var(--tt));
 }
+
+/* slide 1: dark sheet hangs on its left end, right side drops first */
+#s1 .tearoff {
+  background: var(--dark);
+  -webkit-mask-image: url("assets/s1-tear.svg"); mask-image: url("assets/s1-tear.svg");
+  transform-origin: 0 602px;
+  --r1: 7deg; --r2: 26deg; --tx: -40px;
+}
+.m #s1 .tearoff { -webkit-mask-image: url("assets/s1-tear-m.svg"); mask-image: url("assets/s1-tear-m.svg"); transform-origin: 0 932px; }
+#s1.is-in .tearoff { animation: tearOff 1.8s cubic-bezier(.45, 0, .55, 1) 1.1s both; }
 
 /* ---------- 3 / 12 · glyph set ---------- */
 .glyphs { top: 209px; font-size: 90px; line-height: 120px; letter-spacing: 27px; }
@@ -199,6 +216,18 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 /* ---------- 7 · handwriting ---------- */
 #s7 .hl { color: var(--cream); }
 #s7.is-in .hl { animation: toTeal .4s ease var(--d) both; }
+
+/* slide 7: cream sheet over the left half hangs on its bottom corner and falls */
+#s7 .tearoff {
+  background: var(--cream);
+  -webkit-mask-image: url("assets/s7-tear.svg"); mask-image: url("assets/s7-tear.svg");
+  transform-origin: 967px 1080px;
+  --r1: -6deg; --r2: -24deg; --tx: -120px;
+}
+.m #s7 .tearoff { -webkit-mask-image: url("assets/s7-tear-m.svg"); mask-image: url("assets/s7-tear-m.svg"); transform-origin: 0 929px; --r1: 7deg; --r2: 26deg; --tx: -40px; }
+#s7.is-in .tearoff { animation: tearOff 1.8s cubic-bezier(.45, 0, .55, 1) .5s both; }
+/* the typed text and chip under the sheet come in as it falls away */
+#s7.is-in .stage > .a, #s7.is-in .ln.a { animation-delay: calc(var(--d, 0s) + 1.3s); }
 
 /* ---------- 10 · styles switcher ---------- */
 .w-medium { font-weight: 500; }
@@ -313,7 +342,7 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 .m .lbl { font-size: 40px; line-height: 52px; }
 .m .chip { height: auto; padding: 18px 36px; }
 .m .chip > span { font-size: 40px; line-height: 52px; }
-.m #s1 .stage { --lift0: 1250px; --pt: -2911px; --tl: 60px; --tt: 680px; }
+.m #s1 .stage { --pt: -2911px; --tl: 60px; --tt: 680px; }
 .m #s1 .title { font-size: 112px; line-height: 122px; }
 .m #s9 .ul { text-decoration: underline 4px var(--teal); text-underline-offset: 14px; }
 .m #s9 .ulw { text-decoration: underline wavy 4px var(--teal); text-underline-offset: 14px; }
@@ -332,7 +361,7 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 @media (prefers-reduced-motion: reduce) {
   .js .a, .js .ch { opacity: 1; }
   .is-in .a, .is-in .ch, #s1.is-in .stage, #s11.is-in .dot > div { animation: none !important; }
-  #s1 .stage { --lift: 0px; }
+  .tearoff { display: none; }
   #s7 .hl { color: var(--teal); }
   .switcher .txt::after { animation: none; }
 }
