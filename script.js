@@ -6,10 +6,19 @@
   let k = 1;
 
   // ---------- stage scaling ----------
+  // desktop: the 1920×1080 stage is contained in a full-screen slide (centred,
+  // letterboxed); mobile: the 1080×1920 stage fills the width
   const fit = () => {
-    k = slides[0].clientWidth / (root.classList.contains('m') ? 1080 : 1920);
+    const m = root.classList.contains('m');
+    const w = slides[0].clientWidth;
+    const h = slides[0].clientHeight;
+    k = m ? w / 1080 : Math.min(w / 1920, h / 1080);
     root.style.setProperty('--k', k);
+    root.style.setProperty('--ox', m ? '0px' : `${(w - 1920 * k) / 2}px`);
+    root.style.setProperty('--oy', m ? '0px' : `${(h - 1080 * k) / 2}px`);
   };
+  // letterbox margins take the slide's background colour
+  slides.forEach((s) => { s.style.backgroundColor = getComputedStyle(s.querySelector('.stage')).backgroundColor; });
   new ResizeObserver(fit).observe(slides[0]);
 
   // ---------- split text into per-character spans ----------
