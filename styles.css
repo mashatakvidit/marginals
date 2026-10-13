@@ -1,15 +1,25 @@
 @font-face {
   font-family: "Marginalis";
-  src: url("fonts/Marginalis-Regular.woff2") format("woff2"),
-       url("fonts/Marginalis-Regular.woff") format("woff");
+  src: url("fonts/Marginalis-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: "Marginalis";
+  src: url("fonts/Marginalis-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: block;
+}
+@font-face {
+  font-family: "Marginalis Rounded";
+  src: url("fonts/Marginalis-Rounded.woff2") format("woff2");
   font-weight: 400;
   font-display: block;
 }
 @font-face {
   font-family: "Marginalis Rounded";
-  src: url("fonts/Marginalis-Rounded.woff2") format("woff2"),
-       url("fonts/Marginalis-Rounded.woff") format("woff");
-  font-weight: 400;
+  src: url("fonts/Marginalis-RoundedMedium.woff2") format("woff2");
+  font-weight: 500;
   font-display: block;
 }
 
@@ -62,8 +72,8 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 /* Trim text boxes to cap height / baseline (what Figma's "cap height to baseline" does).
    Done with margins instead of `text-box: trim-both cap alphabetic`, which Chrome
    forgets on partial relayout (lines jumped after animations finished).
-   Marginalis (hhea): ascent 1em, descent .2em, cap .7em → top .5lh-.3em, bottom .5lh-.4em */
-.t { font-family: "Marginalis"; white-space: nowrap; margin-block: calc(.3em - .5lh) calc(.4em - .5lh); }
+   Marginalis (hhea): ascent .95em, descent .25em, cap .7em → top .5lh-.35em, bottom .5lh-.35em */
+.t { font-family: "Marginalis"; white-space: nowrap; margin-block: calc(.35em - .5lh) calc(.35em - .5lh); }
 .r { font-family: "Marginalis Rounded"; }
 .ln { display: block; }
 .lbl { font-size: 33.75px; line-height: 45.14px; }
@@ -80,7 +90,7 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
   border-radius: 376.164px;
   white-space: nowrap;
 }
-.chip > span { font-size: 33.75px; line-height: 45.14px; margin-block: calc(.3em - .5lh) calc(.4em - .5lh); }
+.chip > span { font-size: 33.75px; line-height: 45.14px; margin-block: calc(.35em - .5lh) calc(.35em - .5lh); }
 .bg-dark { background: var(--dark); }
 .bg-cream { background: var(--cream); }
 .bg-red { background: var(--red); }
@@ -95,7 +105,7 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 
 .dot > div { width: 123px; height: 123px; display: grid; place-items: center; }
 .dot img { position: absolute; inset: 0; }
-.dot span { position: relative; font-size: 80px; line-height: 117.75px; margin-block: calc(.3em - .5lh) calc(.4em - .5lh); }
+.dot span { position: relative; font-size: 80px; line-height: 117.75px; margin-block: calc(.35em - .5lh) calc(.35em - .5lh); }
 
 /* ---------- animation system ---------- */
 .js .a, .js .ch { opacity: 0; }
@@ -166,7 +176,7 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
   background: var(--cream);
   --lift0: 760px; --lift: var(--lift0);
   --pl: -457px; --pt: -3241px;   /* torn paper */
-  --tl: 192px;  --tt: 197px;     /* title */
+  --tl: 158px;  --tt: 197px;     /* title */
 }
 #s1.is-in .stage { animation: tear 1.6s cubic-bezier(.65, 0, .25, 1) .9s both; }
 #s1 .paper { left: var(--pl); top: var(--pt); width: 2834px; height: 3894px; transform: translateY(var(--lift)); }
@@ -179,7 +189,7 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 }
 
 /* ---------- 3 / 12 · glyph set ---------- */
-.glyphs { left: 216px; top: 209px; font-size: 90px; line-height: 120px; letter-spacing: 27px; }
+.glyphs { top: 209px; font-size: 90px; line-height: 120px; letter-spacing: 27px; }
 
 /* ---------- 5 · collage ---------- */
 .sticker { filter: url(#sticker); }
@@ -191,33 +201,34 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 #s7.is-in .hl { animation: toTeal .4s ease var(--d) both; }
 
 /* ---------- 10 · styles switcher ---------- */
-.faux-bold { -webkit-text-stroke: 2.2px currentColor; }
+.w-medium { font-weight: 500; }
 
 .switcher {
-  left: 155px; top: 188px; width: 1612px; min-height: 583px;
+  left: 135px; top: 187px; width: 1650px; min-height: 584px;
   border-radius: 30px;
-  padding: 62px 121px 0;
+  padding: 60px 100px 100px;
   background: var(--card-bg);
   color: var(--card-fg);
   transition: background-color .5s var(--ease), color .5s var(--ease);
 }
-.sw-regular { --card-bg: var(--cream); --card-fg: var(--dark);  --caret: var(--red); }
-.sw-bold    { --card-bg: var(--red);   --card-fg: var(--cream); --caret: var(--dark); }
-.sw-rounded { --card-bg: var(--teal);  --card-fg: var(--cream); --caret: var(--dark); }
+/* regular = cream, medium styles = red, rounded = teal */
+.sw-regular        { --card-bg: var(--cream); --card-fg: var(--dark);  --caret: var(--red);  --tab-on-bg: var(--red);   --tab-on-fg: var(--cream); }
+.sw-medium,
+.sw-rounded-medium { --card-bg: var(--red);   --card-fg: var(--cream); --caret: var(--dark); --tab-on-bg: var(--cream); --tab-on-fg: var(--dark); }
+.sw-rounded        { --card-bg: var(--teal);  --card-fg: var(--cream); --caret: var(--dark); --tab-on-bg: var(--cream); --tab-on-fg: var(--dark); }
 .switcher .tabs { display: flex; gap: 20px; }
 .switcher .tab {
   position: relative; cursor: pointer; font: inherit;
-  background: transparent; color: var(--card-fg);
-  border: 3px solid var(--card-fg);
+  border: 0;
+  background: var(--dark); color: var(--cream);
   transition: background-color .35s var(--ease), color .35s var(--ease), border-color .35s, scale .2s;
 }
 .switcher .tab:hover { scale: 1.05; }
-.switcher .tab.on { background: var(--card-fg); color: var(--card-bg); }
-.switcher { padding-bottom: 80px; }
+.switcher .tab.on { background: var(--tab-on-bg); color: var(--tab-on-fg); }
 .switcher .txt {
-  --gap: 66px;
-  font-size: 90px; line-height: 120px;
-  margin-block: calc(var(--gap) + .3em - .5lh) calc(.4em - .5lh);
+  --gap: 60px;
+  font-size: 100px; line-height: 120px; letter-spacing: -1px;
+  margin-block: calc(var(--gap) + .35em - .5lh) calc(.35em - .5lh);
   white-space: pre-wrap; overflow-wrap: anywhere;
   transition: opacity .25s;
   cursor: text; outline: none; caret-color: var(--caret);
@@ -250,13 +261,13 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 /* ---------- 14 · cards ---------- */
 .tile, .pcard { width: 245px; height: 287px; border: 3px solid var(--dark); border-radius: 10px; }
 .tile { display: grid; place-items: center; }
-.tile span { font-family: "Marginalis Rounded"; font-size: 200px; line-height: 40px; color: var(--cream); margin-block: calc(.3em - .5lh) calc(.4em - .5lh); }
+.tile span { font-family: "Marginalis Rounded"; font-size: 200px; line-height: 40px; color: var(--cream); margin-block: calc(.35em - .5lh) calc(.35em - .5lh); }
 .pcard { background: var(--cream); padding: 30px; display: flex; flex-direction: column; gap: 30px; }
 .pcard .pic { position: relative; width: 179px; height: 173px; border-radius: 2px; overflow: hidden; flex: none; }
 .pcard .pic img { position: absolute; }
 .pcard .pic2 { position: absolute; left: calc(50% + .5px); top: 46px; width: 204px; height: 135px; transform: translateX(-50%); border-radius: 2px; overflow: hidden; }
 .pcard .pic2 img { position: absolute; }
-.pcard p { width: 179px; font-family: "Marginalis Rounded"; font-size: 25px; line-height: 40px; text-align: center; color: var(--dark); margin-block: calc(.3em - .5lh) calc(.4em - .5lh); }
+.pcard p { width: 179px; font-family: "Marginalis Rounded"; font-size: 25px; line-height: 40px; text-align: center; color: var(--dark); margin-block: calc(.35em - .5lh) calc(.35em - .5lh); }
 .pcard p.reg { font-family: "Marginalis"; }
 @media (hover: hover) {
   #s14 .rb.done { transition: scale .3s var(--ease); }
@@ -310,10 +321,12 @@ img { display: block; max-width: none; -webkit-user-drag: none; }
 .m .switcher { min-height: 0; }
 .m .dl { justify-content: center; padding: 44px 0; }
 .m .dl > span { font-size: 64px; line-height: 76px; }
-.mbr { display: none; }
-.m .mbr { display: inline; }
+/* name line breaks: desktop 3+3, mobile 2+2+2 */
+.mbr, .mplus { display: none; }
+.m .mbr, .m .mplus { display: inline; }
+.m .dbr { display: none; }
 .m #s15 .lang .chip > span { font-size: 34px; line-height: 44px; }
-.m .switcher .tabs { gap: 16px; }
+.m .switcher .tabs { gap: 14px; flex-wrap: wrap; }
 .m .glyphs .ln { text-wrap: balance; }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,7 +1,7 @@
 # Marginalis — type specimen
 
 Animated type specimen for **Marginalis**, a typeface made from a father’s handwriting.
-Styles: Regular, Rounded (Bold coming).
+Styles: Regular, Medium, Rounded, Rounded Medium.
 
 Static site, no build step: open `index.html` or serve the folder with any static server.
 

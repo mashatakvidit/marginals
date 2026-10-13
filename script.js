@@ -77,7 +77,7 @@
   const card = s10.querySelector('.switcher');
   const tabs = [...card.querySelectorAll('.tab')];
   const sample = card.querySelector('.txt');
-  const STYLES = ['regular', 'bold', 'rounded'];
+  const STYLES = ['regular', 'medium', 'rounded', 'rounded-medium'];
   let cycle = null;
   let cycleStart = null;
   const setStyle = (name) => {
@@ -89,8 +89,8 @@
     STYLES.forEach((s) => card.classList.toggle('sw-' + s, s === name));
     sample.classList.add('swap');
     setTimeout(() => {
-      sample.classList.toggle('faux-bold', name === 'bold');
-      sample.classList.toggle('r', name === 'rounded');
+      sample.classList.toggle('w-medium', name.endsWith('medium'));
+      sample.classList.toggle('r', name.startsWith('rounded'));
       sample.classList.remove('swap');
       fitSample();
     }, 250);
@@ -117,8 +117,9 @@
   const fitSample = () => {
     const m = root.classList.contains('m');
     const maxH = m ? 1150 : 770;
-    let size = m ? 62 : 90;
-    const set = () => { sample.style.fontSize = `${size}px`; sample.style.lineHeight = `${Math.round(size * 1.36)}px`; };
+    let size = m ? 62 : 100;
+    const ratio = m ? 86 / 62 : 1.2;
+    const set = () => { sample.style.fontSize = `${size}px`; sample.style.lineHeight = `${Math.round(size * ratio)}px`; };
     set();
     while (card.offsetHeight > maxH && size > 28) { size -= 4; set(); }
   };
@@ -133,9 +134,8 @@
   hit.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') setEnglish(false); });
   hit.addEventListener('click', (e) => { if (e.pointerType !== 'mouse') setEnglish(!creditItems[0].classList.contains('flip')); });
 
-  // mobile: each role chip sits right above its name (names wrap into two lines)
+  // each role chip sits right above its name (positions follow the font's real metrics)
   const placeCredits = () => {
-    if (!root.classList.contains('m')) return;
     const stageLeft = s15.querySelector('.stage').getBoundingClientRect().left;
     s15.querySelectorAll('.lang').forEach((layer) => {
       const names = layer.querySelectorAll('.nm');
