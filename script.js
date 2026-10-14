@@ -329,9 +329,9 @@
     }, 180);
   }, { passive: true });
 
-  // back-to-top button: shown once you're past the first slide
+  // back-to-top button: only on the last slide
   const toTop = document.querySelector('.to-top');
-  const syncTop = () => toTop.classList.toggle('show', scrollY > innerHeight * .5);
+  const syncTop = () => toTop.classList.toggle('show', scrollY > topOf(slides.length - 1) - innerHeight * .5);
   addEventListener('scroll', syncTop, { passive: true });
   syncTop();
   toTop.addEventListener('click', () => { lockedAt = performance.now(); animateTo(0); });
