@@ -71,6 +71,7 @@
     });
     document.querySelectorAll('.hint').forEach(setHintIdle);
     fit();
+    setSampleText();
     fitSample();
     placeCredits();
   };
@@ -115,13 +116,22 @@
   const fitSample = () => {
     const m = root.classList.contains('m');
     const maxH = m ? 1150 : 770;
-    let size = m ? 62 : 100;
-    const ratio = m ? 86 / 62 : 1.2;
+    let size = m ? 84 : 100;
+    const ratio = m ? 104 / 84 : 1.2;
     const set = () => { sample.style.fontSize = `${size}px`; sample.style.lineHeight = `${Math.round(size * ratio)}px`; };
     set();
     while (card.offsetHeight > maxH && size > 28) { size -= 4; set(); }
   };
   sample.addEventListener('input', fitSample);
+  // until someone types their own text, phones get the sample without hard line
+  // breaks so it can wrap evenly at a bigger size
+  const SAMPLE = sample.textContent;
+  let sampleEdited = false;
+  sample.addEventListener('input', () => { sampleEdited = true; }, { once: true });
+  const setSampleText = () => {
+    if (sampleEdited) return;
+    sample.textContent = root.classList.contains('m') ? SAMPLE.replace(/\s*\n\s*/g, ' ') : SAMPLE;
+  };
 
   // ---------- slide 15: names link to each author; hovering one lights up its role chip ----------
   const s15 = document.getElementById('s15');
