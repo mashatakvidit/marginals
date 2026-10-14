@@ -6,17 +6,16 @@
   let k = 1;
 
   // ---------- stage scaling ----------
-  // the stage (1920×1080 desktop, 1080×1920 mobile) is contained in a
-  // full-screen slide, centred and letterboxed
+  // desktop: the 1920×1080 stage is contained in a full-screen slide (centred,
+  // letterboxed); mobile: the 1080×1920 stage fills the width
   const fit = () => {
     const m = root.classList.contains('m');
-    const [sw, sh] = m ? [1080, 1920] : [1920, 1080];
     const w = slides[0].clientWidth;
     const h = slides[0].clientHeight;
-    k = Math.min(w / sw, h / sh);
+    k = m ? w / 1080 : Math.min(w / 1920, h / 1080);
     root.style.setProperty('--k', k);
-    root.style.setProperty('--ox', `${(w - sw * k) / 2}px`);
-    root.style.setProperty('--oy', `${(h - sh * k) / 2}px`);
+    root.style.setProperty('--ox', m ? '0px' : `${(w - 1920 * k) / 2}px`);
+    root.style.setProperty('--oy', m ? '0px' : `${(h - 1080 * k) / 2}px`);
   };
   // letterbox margins take the slide's background colour
   slides.forEach((s) => { s.style.backgroundColor = getComputedStyle(s.querySelector('.stage')).backgroundColor; });
@@ -88,8 +87,6 @@
   const tabs = [...card.querySelectorAll('.tab')];
   const sample = card.querySelector('.txt');
   const STYLES = ['regular', 'medium', 'rounded', 'rounded-medium'];
-  let cycle = null;
-  let cycleStart = null;
   const setStyle = (name) => {
     tabs.forEach((t) => {
       const on = t.dataset.style === name;
@@ -105,20 +102,11 @@
       fitSample();
     }, 250);
   };
-  const stopCycle = () => { clearTimeout(cycleStart); clearInterval(cycle); cycle = null; };
-  const startCycle = () => {
-    stopCycle();
-    setStyle('regular');
-    cycleStart = setTimeout(() => {
-      let n = 0;
-      cycle = setInterval(() => setStyle(STYLES[++n % STYLES.length]), 2000);
-    }, 2400);
-  };
-  tabs.forEach((t) => t.addEventListener('click', () => { stopCycle(); setStyle(t.dataset.style); }));
+  // styles switch only on click
+  tabs.forEach((t) => t.addEventListener('click', () => setStyle(t.dataset.style)));
 
-  // the sample is editable: typing stops the auto-cycle, long text shrinks to fit
+  // the sample is editable; long text shrinks to fit
   if (!sample.isContentEditable) sample.setAttribute('contenteditable', 'true');
-  ['pointerdown', 'focus'].forEach((ev) => sample.addEventListener(ev, stopCycle));
   sample.addEventListener('paste', (e) => {
     e.preventDefault();
     const plain = (e.clipboardData || window.clipboardData).getData('text/plain');
@@ -234,18 +222,13 @@
   });
 
   // ---------- play on enter, reset when fully off-screen ----------
-  const onEnter = (slide) => {
-    if (slide === s10) startCycle();
-  };
   const onLeave = (slide) => {
     slide.querySelectorAll('.done').forEach((el) => el.classList.remove('done'));
-    if (slide === s10) stopCycle();
   };
   const io = new IntersectionObserver((entries) => {
     entries.forEach(({ target, isIntersecting, intersectionRatio }) => {
       if (isIntersecting && intersectionRatio >= 0.35 && !target.classList.contains('is-in')) {
         target.classList.add('is-in');
-        onEnter(target);
       } else if (!isIntersecting && target.classList.contains('is-in')) {
         target.classList.remove('is-in');
         onLeave(target);
@@ -335,6 +318,13 @@
       if (Math.abs(topOf(i) - scrollY) > 2) animateTo(i);
     }, 180);
   }, { passive: true });
+
+  // back-to-top button: shown once you're past the first slide
+  const toTop = document.querySelector('.to-top');
+  const syncTop = () => toTop.classList.toggle('show', scrollY > innerHeight * .5);
+  addEventListener('scroll', syncTop, { passive: true });
+  syncTop();
+  toTop.addEventListener('click', () => { lockedAt = performance.now(); animateTo(0); });
 
   addEventListener('keydown', (e) => {
     if (e.target.closest('button, input, textarea, select, a') || e.target.isContentEditable) return;
