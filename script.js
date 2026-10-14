@@ -6,16 +6,17 @@
   let k = 1;
 
   // ---------- stage scaling ----------
-  // desktop: the 1920×1080 stage is contained in a full-screen slide (centred,
-  // letterboxed); mobile: the 1080×1920 stage fills the width
+  // the stage (1920×1080 desktop, 1080×1920 mobile) is contained in a
+  // full-screen slide, centred and letterboxed
   const fit = () => {
     const m = root.classList.contains('m');
+    const [sw, sh] = m ? [1080, 1920] : [1920, 1080];
     const w = slides[0].clientWidth;
     const h = slides[0].clientHeight;
-    k = m ? w / 1080 : Math.min(w / 1920, h / 1080);
+    k = Math.min(w / sw, h / sh);
     root.style.setProperty('--k', k);
-    root.style.setProperty('--ox', m ? '0px' : `${(w - 1920 * k) / 2}px`);
-    root.style.setProperty('--oy', m ? '0px' : `${(h - 1080 * k) / 2}px`);
+    root.style.setProperty('--ox', `${(w - sw * k) / 2}px`);
+    root.style.setProperty('--oy', `${(h - sh * k) / 2}px`);
   };
   // letterbox margins take the slide's background colour
   slides.forEach((s) => { s.style.backgroundColor = getComputedStyle(s.querySelector('.stage')).backgroundColor; });
@@ -134,14 +135,15 @@
   };
   sample.addEventListener('input', fitSample);
 
-  // ---------- slide 15: hover the credits block → all of it turns English ----------
+  // ---------- slide 15: names link to each author; hovering one lights up its role chip ----------
   const s15 = document.getElementById('s15');
-  const creditItems = [...s15.querySelectorAll('.lang > *')];
-  const hit = s15.querySelector('.credits-hit');
-  const setEnglish = (on) => creditItems.forEach((el) => el.classList.toggle('flip', on));
-  hit.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') setEnglish(true); });
-  hit.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') setEnglish(false); });
-  hit.addEventListener('click', (e) => { if (e.pointerType !== 'mouse') setEnglish(!creditItems[0].classList.contains('flip')); });
+  const credNames = [...s15.querySelectorAll('.nm')];
+  const credChips = [...s15.querySelectorAll('.lang .chip')];
+  credNames.forEach((nm, i) => {
+    if (nm.tagName !== 'A') return;
+    ['pointerenter', 'focus'].forEach((ev) => nm.addEventListener(ev, () => credChips[i].classList.add('hot')));
+    ['pointerleave', 'blur'].forEach((ev) => nm.addEventListener(ev, () => credChips[i].classList.remove('hot')));
+  });
 
   // each role chip sits right above its name (positions follow the font's real metrics)
   const placeCredits = () => {
@@ -199,7 +201,8 @@
     if (!el || e.button > 0) return;
     const slide = el.closest('.slide');
     if (!slide.classList.contains('is-in')) return;
-    if (coarseMQ.matches && el.dataset.drag === 'big') return;
+    // phones: no dragging (the page scrolls under the finger instead)
+    if (root.classList.contains('m') || (coarseMQ.matches && el.dataset.drag === 'big')) return;
     e.preventDefault();
     try { el.setPointerCapture(e.pointerId); } catch { /* synthetic / already released pointer */ }
     const sx = e.clientX, sy = e.clientY;
@@ -237,7 +240,6 @@
   const onLeave = (slide) => {
     slide.querySelectorAll('.done').forEach((el) => el.classList.remove('done'));
     if (slide === s10) stopCycle();
-    if (slide === s15) setEnglish(false);
   };
   const io = new IntersectionObserver((entries) => {
     entries.forEach(({ target, isIntersecting, intersectionRatio }) => {
@@ -253,7 +255,31 @@
 
   applyMode();
   mobileMQ.addEventListener('change', applyMode);
-  slides.forEach((s) => io.observe(s));
+
+  // ---------- preloader: wait for fonts + images (max 6s), then start the show ----------
+  const bar = document.querySelector('.pl-bar i');
+  const imgs = [...document.images];
+  let ready = 0;
+  const tick = () => bar && bar.style.setProperty('--p', Math.max(.04, ready / (imgs.length + 1)));
+  const loaded = (img) => (img.complete ? Promise.resolve() : new Promise((r) => {
+    img.addEventListener('load', r, { once: true });
+    img.addEventListener('error', r, { once: true });
+  })).then(() => { ready++; tick(); });
+  let started = false;
+  const start = () => {
+    if (started) return;
+    started = true;
+    if (bar) bar.style.setProperty('--p', 1);
+    fit();
+    fitSample();
+    placeCredits();
+    setTimeout(() => {
+      root.classList.add('loaded');
+      slides.forEach((s) => io.observe(s));
+    }, 250);
+  };
+  Promise.all([document.fonts.ready.then(() => { ready++; tick(); }), ...imgs.map(loaded)]).then(start);
+  setTimeout(start, 6000);
 
   // ---------- one gesture = one slide ----------
   // a slide's resting scroll position (the last ones may be unreachable in tall windows)
