@@ -234,6 +234,7 @@
   // ---------- play on enter, reset when fully off-screen ----------
   const onLeave = (slide) => {
     slide.querySelectorAll('.done').forEach((el) => el.classList.remove('done'));
+    slide.classList.remove('torn');
   };
   const io = new IntersectionObserver((entries) => {
     entries.forEach(({ target, isIntersecting, intersectionRatio }) => {
@@ -329,9 +330,26 @@
     }, 180);
   }, { passive: true });
 
-  // back-to-top button: only on the last slide
+  // back-to-top button only on the last slide; the pinned download button everywhere but there
   const toTop = document.querySelector('.to-top');
-  const syncTop = () => toTop.classList.toggle('show', scrollY > topOf(slides.length - 1) - innerHeight * .5);
+  const dlFixed = document.querySelector('.dl-fixed');
+  // slides whose bottom-right corner is cream (s1/s9 only once their dark sheet
+  // has fallen, s7 only until its cream sheet has)
+  const CREAM = { s4: 1, s8: 1 };
+  const creamCorner = (sl) => CREAM[sl.id]
+    || ((sl.id === 's1' || sl.id === 's9') && sl.classList.contains('torn'))
+    || (sl.id === 's7' && !sl.classList.contains('torn'));
+  const syncTop = () => {
+    const onLast = scrollY > topOf(slides.length - 1) - innerHeight * .5;
+    toTop.classList.toggle('show', onLast);
+    dlFixed.classList.toggle('away', onLast);
+    dlFixed.classList.toggle('on-cream', !!creamCorner(slides[nearest()]));
+  };
+  document.addEventListener('animationend', (e) => {
+    if (!e.target.classList.contains('tearoff')) return;
+    e.target.closest('.slide').classList.add('torn');
+    syncTop();
+  });
   addEventListener('scroll', syncTop, { passive: true });
   syncTop();
   toTop.addEventListener('click', () => { lockedAt = performance.now(); animateTo(0); });

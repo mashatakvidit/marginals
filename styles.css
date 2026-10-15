@@ -1,24 +1,24 @@
 @font-face {
   font-family: "Marginalis";
-  src: url("fonts/Marginalis-Regular.woff2?v=20261014m") format("woff2");
+  src: url("fonts/Marginalis-Regular.woff2?v=20261015b") format("woff2");
   font-weight: 400;
   font-display: block;
 }
 @font-face {
   font-family: "Marginalis";
-  src: url("fonts/Marginalis-Medium.woff2?v=20261014m") format("woff2");
+  src: url("fonts/Marginalis-Medium.woff2?v=20261015b") format("woff2");
   font-weight: 500;
   font-display: block;
 }
 @font-face {
   font-family: "Marginalis Rounded";
-  src: url("fonts/Marginalis-Rounded.woff2?v=20261014m") format("woff2");
+  src: url("fonts/Marginalis-Rounded.woff2?v=20261015b") format("woff2");
   font-weight: 400;
   font-display: block;
 }
 @font-face {
   font-family: "Marginalis Rounded";
-  src: url("fonts/Marginalis-RoundedMedium.woff2?v=20261014m") format("woff2");
+  src: url("fonts/Marginalis-RoundedMedium.woff2?v=20261015b") format("woff2");
   font-weight: 500;
   font-display: block;
 }
@@ -213,7 +213,7 @@ html:not(.js) .preloader { display: none; }
 #s1 .paper { left: var(--pl); top: var(--pt); width: 2834px; height: 3894px; }
 #s1 .title { left: var(--tl); top: var(--tt); font-size: 180px; line-height: 180px; }
 #s1 .title.masked {
-  mask-image: url("assets/s1-mask.svg?v=20261014m");
+  mask-image: url("assets/s1-mask.svg?v=20261015b");
   mask-size: 2834px 3894px;
   mask-repeat: no-repeat;
   /* the box sits (.5lh - .35em) above the cap line because of the trim margin */
@@ -223,13 +223,13 @@ html:not(.js) .preloader { display: none; }
 /* slide 1: dark sheet hangs on its left end, right side drops first */
 #s1 .tearoff {
   background: var(--dark);
-  -webkit-mask-image: url("assets/s1-tear.svg?v=20261014m"); mask-image: url("assets/s1-tear.svg?v=20261014m");
+  -webkit-mask-image: url("assets/s1-tear.svg?v=20261015b"); mask-image: url("assets/s1-tear.svg?v=20261015b");
   --sx: -457px; --sw: 2834px; --sh: 1700px;
   transform-origin: 457px 602px;
   --r1: 7deg; --r2: 26deg; --tx: -40px;
 }
 #s1 .tearoff .title { left: calc(var(--tl) - var(--sx)); top: calc(var(--tt) - var(--sy, 0px)); }
-.m #s1 .tearoff { --sx: 0px; --sy: 0px; --sw: 1080px; --sh: 1920px; -webkit-mask-image: url("assets/s1-tear-m.svg?v=20261014m"); mask-image: url("assets/s1-tear-m.svg?v=20261014m"); transform-origin: 0 932px; }
+.m #s1 .tearoff { --sx: 0px; --sy: 0px; --sw: 1080px; --sh: 1920px; -webkit-mask-image: url("assets/s1-tear-m.svg?v=20261015b"); mask-image: url("assets/s1-tear-m.svg?v=20261015b"); transform-origin: 0 932px; }
 #s1.is-in .tearoff { animation: tearOff 1.8s cubic-bezier(.45, 0, .55, 1) 1.1s both; }
 
 /* ---------- 3 / 12 · glyph set ---------- */
@@ -247,16 +247,16 @@ html:not(.js) .preloader { display: none; }
 #s7 .hl { color: var(--cream); }
 #s7.is-in .hl { animation: toTeal .4s ease var(--d) both; }
 
-/* slide 7: cream sheet over the left half hangs on its bottom corner and falls */
+/* slide 7: handwriting on the left; the cream sheet over the right half hangs on its bottom corner and falls */
 #s7 .tearoff {
   background: var(--cream);
-  -webkit-mask-image: url("assets/s7-tear.svg?v=20261014m"); mask-image: url("assets/s7-tear.svg?v=20261014m");
-  --sx: -600px; --sy: -600px; --sw: 2700px; --sh: 2280px;
-  transform-origin: 1567px 1680px;
-  --r1: -5deg; --r2: -9deg; --tx: -80px;
+  -webkit-mask-image: url("assets/s7-tear.svg?v=20261015b"); mask-image: url("assets/s7-tear.svg?v=20261015b");
+  --sx: -180px; --sy: -600px; --sw: 2700px; --sh: 2280px;
+  transform-origin: 1133px 1680px;
+  --r1: 5deg; --r2: 9deg; --tx: 80px;
 }
 /* mobile: handwriting on top, the sheet over the typeset half below drops out of the bottom */
-.m #s7 .tearoff { --sx: 0px; --sy: -400px; --sw: 1080px; --sh: 2720px; -webkit-mask-image: url("assets/s7-tear-m.svg?v=20261014m"); mask-image: url("assets/s7-tear-m.svg?v=20261014m"); transform-origin: 0 1344px; --r1: 7deg; --r2: 26deg; --tx: -40px; }
+.m #s7 .tearoff { --sx: 0px; --sy: -400px; --sw: 1080px; --sh: 2720px; -webkit-mask-image: url("assets/s7-tear-m.svg?v=20261015b"); mask-image: url("assets/s7-tear-m.svg?v=20261015b"); transform-origin: 0 1344px; --r1: 7deg; --r2: 26deg; --tx: -40px; }
 #s7.is-in .tearoff { animation: tearOff 1.8s cubic-bezier(.45, 0, .55, 1) .5s both; }
 /* the typed text and chip under the sheet come in as it falls away */
 #s7.is-in .stage > .a, #s7.is-in .ln.a { animation-delay: calc(var(--d, 0s) + 1.3s); }
@@ -264,12 +264,12 @@ html:not(.js) .preloader { display: none; }
 /* slide 9: the dark sheet over the cream half tears off like on slide 1 */
 #s9 .tearoff {
   background: var(--dark);
-  -webkit-mask-image: url("assets/s9-sheet.svg?v=20261014m"); mask-image: url("assets/s9-sheet.svg?v=20261014m");
+  -webkit-mask-image: url("assets/s9-sheet.svg?v=20261015b"); mask-image: url("assets/s9-sheet.svg?v=20261015b");
   --sx: -600px; --sw: 3120px; --sh: 1700px;
   transform-origin: 600px 554px;
   --r1: 7deg; --r2: 26deg; --tx: -40px;
 }
-.m #s9 .tearoff { --sx: 0px; --sy: 0px; --sw: 1080px; --sh: 1920px; -webkit-mask-image: url("assets/s9-sheet-m.svg?v=20261014m"); mask-image: url("assets/s9-sheet-m.svg?v=20261014m"); transform-origin: 0 976px; }
+.m #s9 .tearoff { --sx: 0px; --sy: 0px; --sw: 1080px; --sh: 1920px; -webkit-mask-image: url("assets/s9-sheet-m.svg?v=20261015b"); mask-image: url("assets/s9-sheet-m.svg?v=20261015b"); transform-origin: 0 976px; }
 #s9.is-in .tearoff { animation: tearOff 1.8s cubic-bezier(.45, 0, .55, 1) .9s both; }
 #s9.is-in .after-tear { animation-delay: calc(var(--d, 0s) + .9s); }
 
@@ -280,8 +280,8 @@ html:not(.js) .preloader { display: none; }
   -webkit-mask-size: 1080px 1920px, 1080px 400px; mask-size: 1080px 1920px, 1080px 400px;
   -webkit-mask-position: 0 0, 0 1920px; mask-position: 0 0, 0 1920px;
 }
-.m #s1 .tearoff { -webkit-mask-image: url("assets/s1-tear-m.svg?v=20261014m"), linear-gradient(#000, #000); mask-image: url("assets/s1-tear-m.svg?v=20261014m"), linear-gradient(#000, #000); }
-.m #s9 .tearoff { -webkit-mask-image: url("assets/s9-sheet-m.svg?v=20261014m"), linear-gradient(#000, #000); mask-image: url("assets/s9-sheet-m.svg?v=20261014m"), linear-gradient(#000, #000); }
+.m #s1 .tearoff { -webkit-mask-image: url("assets/s1-tear-m.svg?v=20261015b"), linear-gradient(#000, #000); mask-image: url("assets/s1-tear-m.svg?v=20261015b"), linear-gradient(#000, #000); }
+.m #s9 .tearoff { -webkit-mask-image: url("assets/s9-sheet-m.svg?v=20261015b"), linear-gradient(#000, #000); mask-image: url("assets/s9-sheet-m.svg?v=20261015b"), linear-gradient(#000, #000); }
 
 /* ---------- 10 · styles switcher ---------- */
 .w-medium { font-weight: 500; }
@@ -415,6 +415,29 @@ a.nm:focus-visible { outline: none; }
 .to-top:focus-visible { outline: 3px solid var(--cream); outline-offset: 4px; }
 @keyframes nudgeUp { 40% { translate: 0 -4px; } }
 .m .to-top { display: none; }
+
+/* ---------- download: pinned bottom-right on desktop, on the stage's 60px grid ---------- */
+.dl-fixed {
+  position: fixed; z-index: 940;
+  right: calc(var(--ox, 0px) + 60px * var(--k)); bottom: calc(var(--oy, 0px) + 60px * var(--k));
+  transform: scale(var(--k)); transform-origin: 100% 100%;
+  text-decoration: none; cursor: pointer;
+  transition: opacity .35s var(--ease), visibility 0s, scale .25s var(--ease), box-shadow .3s;
+}
+.dl-fixed:hover { scale: 1.06; box-shadow: 0 0 0 10px rgba(242, 224, 206, .25); }
+.dl-fixed:focus-visible { outline: 3px solid var(--cream); outline-offset: 4px; }
+/* the last slide has its own download button */
+.dl-fixed.away { opacity: 0; visibility: hidden; transition: opacity .35s var(--ease), visibility 0s .35s; }
+.m .dl-fixed { display: none; }
+/* over a cream bottom-right corner the pinned button turns dark */
+.dl-fixed { transition: opacity .35s var(--ease), visibility 0s, scale .25s var(--ease), box-shadow .3s, background-color .35s var(--ease); }
+.dl-fixed > span { transition: color .35s var(--ease); }
+.dl-fixed.on-cream { background: var(--dark); }
+.dl-fixed.on-cream > span { color: var(--cream); }
+.dl-fixed.on-cream:hover { box-shadow: 0 0 0 10px rgba(25, 25, 25, .18); }
+/* phones: a plain button on the first slide instead */
+.dl-m { display: none; text-decoration: none; }
+.m .dl-m { display: flex; }
 
 /* ---------- mobile: portrait 1080×1920 stages ---------- */
 .m .slide { height: auto; aspect-ratio: 9 / 16; }
