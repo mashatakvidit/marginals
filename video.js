@@ -8,7 +8,7 @@
   const prev = slide.querySelector('.vprev');
   const box = document.querySelector('.vbox');
   const full = box.querySelector('.vfull');
-  const FULL_SRC = 'assets/video/full.mp4?v=20261016b';
+  const FULL_SRC = 'assets/video/full.mp4?v=20261016d';
   let open = false;
 
   const playPrev = () => { const p = prev.play(); if (p) p.catch(() => {}); };
