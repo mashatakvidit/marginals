@@ -83,55 +83,60 @@
   });
 
   // ---------- slide 10: style switcher ----------
+  // (pages without slide 10 — e.g. the test page — skip all of this)
+  let fitSample = () => {};
+  let setSampleText = () => {};
   const s10 = document.getElementById('s10');
-  const card = s10.querySelector('.switcher');
-  const tabs = [...card.querySelectorAll('.tab')];
-  const sample = card.querySelector('.txt');
-  const STYLES = ['regular', 'medium', 'rounded', 'rounded-medium'];
-  const setStyle = (name) => {
-    tabs.forEach((t) => {
-      const on = t.dataset.style === name;
-      t.classList.toggle('on', on);
-      t.setAttribute('aria-selected', on);
-    });
-    STYLES.forEach((s) => card.classList.toggle('sw-' + s, s === name));
-    sample.classList.add('swap');
-    setTimeout(() => {
-      sample.classList.toggle('w-medium', name.endsWith('medium'));
-      sample.classList.toggle('r', name.startsWith('rounded'));
-      sample.classList.remove('swap');
-      fitSample();
-    }, 250);
-  };
-  // styles switch only on click
-  tabs.forEach((t) => t.addEventListener('click', () => setStyle(t.dataset.style)));
+  if (s10) {
+    const card = s10.querySelector('.switcher');
+    const tabs = [...card.querySelectorAll('.tab')];
+    const sample = card.querySelector('.txt');
+    const STYLES = ['regular', 'medium', 'rounded', 'rounded-medium'];
+    const setStyle = (name) => {
+      tabs.forEach((t) => {
+        const on = t.dataset.style === name;
+        t.classList.toggle('on', on);
+        t.setAttribute('aria-selected', on);
+      });
+      STYLES.forEach((s) => card.classList.toggle('sw-' + s, s === name));
+      sample.classList.add('swap');
+      setTimeout(() => {
+        sample.classList.toggle('w-medium', name.endsWith('medium'));
+        sample.classList.toggle('r', name.startsWith('rounded'));
+        sample.classList.remove('swap');
+        fitSample();
+      }, 250);
+    };
+    // styles switch only on click
+    tabs.forEach((t) => t.addEventListener('click', () => setStyle(t.dataset.style)));
 
-  // the sample is editable; long text shrinks to fit
-  if (!sample.isContentEditable) sample.setAttribute('contenteditable', 'true');
-  sample.addEventListener('paste', (e) => {
-    e.preventDefault();
-    const plain = (e.clipboardData || window.clipboardData).getData('text/plain');
-    document.execCommand('insertText', false, plain);
-  });
-  const fitSample = () => {
-    const m = root.classList.contains('m');
-    const maxH = m ? 1150 : 770;
-    let size = m ? 84 : 100;
-    const ratio = m ? 104 / 84 : 1.2;
-    const set = () => { sample.style.fontSize = `${size}px`; sample.style.lineHeight = `${Math.round(size * ratio)}px`; };
-    set();
-    while (card.offsetHeight > maxH && size > 28) { size -= 4; set(); }
-  };
-  sample.addEventListener('input', fitSample);
-  // until someone types their own text, phones get the sample without hard line
-  // breaks so it can wrap evenly at a bigger size
-  const SAMPLE = sample.textContent;
-  let sampleEdited = false;
-  sample.addEventListener('input', () => { sampleEdited = true; }, { once: true });
-  const setSampleText = () => {
-    if (sampleEdited) return;
-    sample.textContent = root.classList.contains('m') ? SAMPLE.replace(/\s*\n\s*/g, ' ') : SAMPLE;
-  };
+    // the sample is editable; long text shrinks to fit
+    if (!sample.isContentEditable) sample.setAttribute('contenteditable', 'true');
+    sample.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const plain = (e.clipboardData || window.clipboardData).getData('text/plain');
+      document.execCommand('insertText', false, plain);
+    });
+    fitSample = () => {
+      const m = root.classList.contains('m');
+      const maxH = m ? 1150 : 770;
+      let size = m ? 84 : 100;
+      const ratio = m ? 104 / 84 : 1.2;
+      const set = () => { sample.style.fontSize = `${size}px`; sample.style.lineHeight = `${Math.round(size * ratio)}px`; };
+      set();
+      while (card.offsetHeight > maxH && size > 28) { size -= 4; set(); }
+    };
+    sample.addEventListener('input', fitSample);
+    // until someone types their own text, phones get the sample without hard line
+    // breaks so it can wrap evenly at a bigger size
+    const SAMPLE = sample.textContent;
+    let sampleEdited = false;
+    sample.addEventListener('input', () => { sampleEdited = true; }, { once: true });
+    setSampleText = () => {
+      if (sampleEdited) return;
+      sample.textContent = root.classList.contains('m') ? SAMPLE.replace(/\s*\n\s*/g, ' ') : SAMPLE;
+    };
+  }
 
   // ---------- slide 15: names link to each author; hovering one lights up its role chip ----------
   const s15 = document.getElementById('s15');
