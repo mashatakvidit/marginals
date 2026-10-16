@@ -433,6 +433,19 @@
   </div>
 </section>
 
+<!-- video -->
+<section class="slide" id="sv" aria-label="Видео о шрифте">
+  <div class="stage" style="background:var(--red)">
+    <button class="vcard a" type="button" aria-label="Смотреть видео со звуком" data-m="left:60px;top:640px;width:960px;height:540px" style="left:291px;top:187px;width:1338px;height:706px;--anim:drop;--fy:-200px;--fr:-4deg;--d:.1s">
+      <video class="vprev" src="assets/video/preview.mp4?v=20261016e" poster="assets/video/poster.jpg?v=20261016e" muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <span class="vplay" aria-hidden="true"><span>смотреть со звуком</span></span>
+    </button>
+    <div class="rb clip a" data-m="left:40px;top:500px" style="left:206px;top:115px;width:160.929px;height:169.775px;--anim:fly;--fx:-400px;--fy:-200px;--d:.5s"><div style="transform:rotate(42.02deg)"><img src="assets/clip-dark.svg?v=20261016e" alt=""></div></div>
+    <div class="rb clip a" data-m="left:180px;top:1260px" style="left:60px;top:734px;width:185.628px;height:119.095px;--anim:fly;--fx:-300px;--fy:300px;--d:.6s"><div style="transform:rotate(111.95deg)"><img src="assets/clip61-teal.svg?v=20261016e" alt=""></div></div>
+    <div class="rb clip a" data-m="left:60px;top:1220px" style="left:128px;top:565px;width:120.405px;height:185.497px;--anim:fly;--fx:-400px;--fy:100px;--d:.65s"><div style="transform:rotate(-22.48deg)"><img src="assets/s5-clip62.svg?v=20261016e" alt=""></div></div>
+  </div>
+</section>
+
 <!-- 15 -->
 <section class="slide" id="s15" aria-label="Project made by">
   <div class="stage" style="background:var(--red)">
@@ -476,10 +489,15 @@
 </main>
 
 <a class="chip bg-cream dl-fixed" href="https://github.com/Bloorgard/marginalis" target="_blank" rel="noopener"><span class="c-dark">download</span></a>
+<div class="vbox" role="dialog" aria-modal="true" aria-label="Видео" hidden>
+  <video class="vfull" controls playsinline preload="none"></video>
+  <button class="vclose" type="button" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+</div>
 <button class="to-top" type="button" aria-label="Наверх">
   <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
 <script src="script.js?v=20261016e"></script>
+<script src="video.js?v=20261016e"></script>
 </body>
 </html>
